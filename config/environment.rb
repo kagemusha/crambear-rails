@@ -2,4 +2,6 @@
 require File.expand_path('../application', __FILE__)
 
 # Initialize the rails application
-Crember::Application.initialize!
+Crambear::Application.initialize!
+
+Tilt::CoffeeScriptTemplate.default_bare = true

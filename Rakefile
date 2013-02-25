@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Crember::Application.load_tasks
+Crambear::Application.load_tasks
