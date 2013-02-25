@@ -1,0 +1,19 @@
+development:
+  adapter: postgresql
+  database: crember_dev
+  host: localhost
+
+test:
+  adapter: postgresql
+  database: crember_test
+  host: localhost
+
+#dummy to get assets:precompile to work
+#see http://devcenter.heroku.com/articles/rails31_heroku_cedar
+production:
+  adapter: postgresql
+  database: crambrule
+  username: postgres
+  password: wagner
+  port: 5432
+

@@ -1,0 +1,75 @@
+@import compass
+@import bootstrap
+
+.inline
+  display: inline
+
+.greeting
+  .hello
+    font-weight: bold
+    color: blue
+
+
+.actions
+  text-align: right !important
+
+//.trailer
+//  +trailer
+
+
+
+
+table
+  input
+    margin-bottom: 0 !important
+    padding: 1px 4px !important
+
+  tr
+    height: 40px
+
+    td
+      label.control-label
+        display: none
+
+      div
+        display: inline-block
+        margin: 0 !important
+
+table.cards
+  th
+    &.is-done
+      width: 14px
+    &.estimate
+      width: 100px
+    &.actions
+      width: 140px
+
+
+  tr
+    td
+      input[type=text]
+        width: 360px
+      input[type=number]
+        width: 80px
+
+  .actions
+    width: 100px
+
+    button
+      display: none
+
+  tr:hover, tr.is-editing
+    .actions
+      button
+        display: inline
+
+.sidebar-nav-fixed
+  padding: 9px 0
+  position:fixed
+    left: 20px
+    top: 60px
+    width: 250px
+
+
+.row-fluid > .span-fixed-sidebar
+  margin-left: 290px
