@@ -269,7 +269,7 @@ DEPENDENCIES
   hpricot (>= 0.8.6)
   jquery-rails
   konacha
-  pg
+  pg (>= 0.14.1)
   quiet_assets (>= 1.0.1)
   rails (= 3.2.12)
   rails_admin
