@@ -9,7 +9,7 @@ gem 'ember-rails'
 gem "thin", ">= 1.5.0"
 gem "haml", ">= 3.1.7"
 
-gem 'compass-rails'
+#gem 'compass-rails'
 gem "bootstrap-sass", ">= 2.2.2.0"
 
 
