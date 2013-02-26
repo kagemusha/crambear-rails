@@ -1,15 +1,17 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.12'
-gem "pg"
+gem 'pg'
 
 gem 'jquery-rails'
 gem 'ember-rails'
 
-#gem "rails_admin"
-gem "thin", ">= 1.5.0"
+gem "rails_admin"
+gem "thin", ">= 1.5.0", :group => [:development, :test]
 gem "haml", ">= 3.1.7"
+gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
+gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
 
-#gem 'compass-rails'
+gem 'compass-rails'
 gem "bootstrap-sass", ">= 2.2.2.0"
 
 
@@ -45,8 +47,6 @@ group :test do
 end
 
 group :test, :development do
-  gem "rspec-rails", ">= 2.12.2"
-  gem "factory_girl_rails", ">= 4.2.0"
   gem 'konacha'
   #gem 'poltergeist' #replace capy-webkit
 end
