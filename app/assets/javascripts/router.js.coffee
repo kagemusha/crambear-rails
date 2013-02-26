@@ -14,7 +14,7 @@ App.Router.map ->
   @resource 'sets', ->
     @route 'new'
     @resource 'set', { path: ':set_id' }, ->
-      @route 'study', { path: 'study/:id' }, ->
+    @route 'study', { path: ':set_id/study' }, ->
 
 
 App.HomeRoute = Ember.Route.extend
@@ -25,10 +25,6 @@ App.IndexRoute = Ember.Route.extend
   redirect: ->
     @transitionTo 'home'
 
-#App.SetsSetStudyRoute = Ember.Route.extend
-#  model: ->  App.Set.find(params.set_id)
-#  setupController: (controller, model) ->
-#    log.log "StudyRoute contr setup. Set id: #{model.id}"
 
 App.SetsRoute = Ember.Route.extend
   model: -> App.Set.find()
@@ -38,6 +34,12 @@ App.SetsRoute = Ember.Route.extend
 App.SetRoute = Ember.Route.extend
   setupController: (controller, model) ->
     log.log "SetRoute contr setup. Set id: #{model.id}"
+    controller.set 'content', model
+
+App.SetStudyRoute = Ember.Route.extend
+  model: ->  App.Set.find(params.set_id)
+  setupController: (controller, model) ->
+    log.log "SetsStudyRoute contr setup. Set id: #{model.id}"
     controller.set 'content', model
 
 #App.HelpRoute = Ember.Route.extend
