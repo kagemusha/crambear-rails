@@ -14,7 +14,7 @@ App.Router.map ->
   @resource 'sets', ->
     @route 'new'
     @resource 'set', { path: ':set_id' }, ->
-    @route 'study', { path: ':set_id/study' }, ->
+      @route 'study', { path: 'study' }, ->
 
 
 App.HomeRoute = Ember.Route.extend
@@ -37,9 +37,9 @@ App.SetRoute = Ember.Route.extend
     controller.set 'content', model
 
 App.SetStudyRoute = Ember.Route.extend
-  model: ->  App.Set.find(params.set_id)
+  #model: ->  App.Set.find(params.set_id)
   setupController: (controller, model) ->
-    log.log "SetsStudyRoute contr setup. Set id: #{model.id}"
+    log.log "SetsStudyRoute contr setup. Set id: #{model?.id}"
     controller.set 'content', model
 
 #App.HelpRoute = Ember.Route.extend
