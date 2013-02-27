@@ -14,7 +14,7 @@ App.Router.map ->
   @resource 'sets', ->
     @route 'new'
     @resource 'set', { path: ':set_id' }, ->
-      @route 'study', { path: 'study' }, ->
+    @route 'study', { path: ':set_id/study' }, ->
 
 
 App.HomeRoute = Ember.Route.extend
@@ -28,19 +28,32 @@ App.IndexRoute = Ember.Route.extend
 
 App.SetsRoute = Ember.Route.extend
   model: -> App.Set.find()
-#App.HomeRoute = Ember.Route.extend
-#  events:
-#    logout: -> App.logout this
-App.SetRoute = Ember.Route.extend
-  setupController: (controller, model) ->
-    log.log "SetRoute contr setup. Set id: #{model.id}"
-    controller.set 'content', model
 
-App.SetStudyRoute = Ember.Route.extend
-  #model: ->  App.Set.find(params.set_id)
+
+App.SetRoute = Ember.Route.extend
+  model: ->  App.Set.find(params?.set_id)
   setupController: (controller, model) ->
-    log.log "SetsStudyRoute contr setup. Set id: #{model?.id}"
+    log.log "SetRoute.setupController. Set: #{model.get("name")}"
     controller.set 'content', model
+#  renderTemplate: ->
+#    log.log "SetRoute renderTemplate"
+#    @render()
+#    @render 'sets/set_actions', into: "set", outlet: "setActions"
+
+
+App.SetsStudyRoute = Ember.Route.extend
+  model: ->  App.Set.find(params?.set_id)
+  setupController: (controller, model) ->
+    log.log "StudyRoute.setupController. Set: #{model.get("name")}"
+    log.log "Card count #{model.get("cards").get("length")}"
+    controller.set 'content', model
+    controller.start model.get("cards")
+
+#    controller.set "currentCard", model.get("cards").objectAt(0)
+#    log.log "card front: #{controller.get("currentCard").get("front")}"
+#    log.log "card back: #{controller.get("currentCard").get("back")}"
+    #controller.set 'content', set.get('cards')
+
 
 #App.HelpRoute = Ember.Route.extend
 #  events:

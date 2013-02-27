@@ -29,11 +29,39 @@ App.WelcomeMsgController = Ember.ObjectController.extend
 #App.SetController = Ember.ObjectController.extend {}
 
 
-App.StudyController = Ember.ArrayController.extend
-  setupController: ->
-    controller.set 'content', set.get('cards')
-    #get study order
-      # filter cards
-      # randomize cards
+App.SetsStudyController = Ember.ObjectController.extend
+  showingFront: true
   order: []
+  cards: null
+  init: -> log.log "SetsStudyController.init!! This gets called AUTOMATICALLY"
+  start: (cards) ->
+    @cards = cards
+    @orderCards()
+    @next()
+  orderCards: ->
+    log.log "orderC"
+    @order = [0..@get("cards").get("length")-1]
+    log.log "orderLen: #{@order.length}"
   currentCard: null
+  front: (->
+    @get('currentCard').get("front")
+  ).property('currentCard')
+  back: (->
+    @get('currentCard').get("back")
+  ).property('currentCard')
+  flip: ->
+    log.log "action flipped"
+    @set "showingFront", false
+  correct: ->
+    log.log "action correct"
+    @next()
+  wrong: ->
+    log.log "action wrong"
+    @next()
+  next: ->
+    @set "showingFront", true
+    if @order.length==0
+      #@render 'sets/set_actions', into: "set", outlet: "setActions"
+    else
+      cardId = @order.shift()
+      @set "currentCard", @get("cards").objectAt(cardId)

@@ -1,3 +1,20 @@
+<h3>{{name}}</h3>
+<div class="btn_bar">
+    {{#if showingFront}}
+      <button class="btn btn-primary" {{action flip}}>Flip</button>
+    {{else}}
+      <button class="btn btn-danger" {{action correct}}>Correct</button>
+      <button class="btn btn-danger" {{action wrong}}>Wrong</button>
+    {{/if}}
+</div>
 <div>
-  sets/study Set: {{name}}
+{{#unless showingFront}}
+    <div id="cardBack" class="card span6">
+        {{back}}
+    </div>
+{{/unless}}
+    <br/>
+    <div id="cardFront" class="card span6">
+        {{front}}
+    </div>
 </div>
