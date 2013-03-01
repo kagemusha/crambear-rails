@@ -1,5 +1,5 @@
 *** This project is under development and most functionality is not implemented yet***
-You can view the [non-Ember version](http://crambear2.herokuapp.com) to see what it will look like in future.
+You can use the [non-Ember version](http://crambear2.herokuapp.com) to see what it will look like in future.
 
 Crambear
 =======================

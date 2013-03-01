@@ -4,6 +4,7 @@ gem 'pg'
 
 gem 'jquery-rails'
 gem 'ember-rails'
+gem 'emblem-rails', ">= 0.1.0"
 
 gem "rails_admin"
 gem "thin", ">= 1.5.0"
