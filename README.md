@@ -1,8 +1,11 @@
+*** This project is under development and not usable yet***
+
 Crambear
 =======================
 
-Flash Cards App.
-
+Crambear is a flash cards app written in Rails and EmberJs.  Its aim is to provide a non-trivial example of
+an actual Ember.js app.  And by non-trivial I mean something will more than just 1 or 2 models and which
+does something besides just CRUD.
 
 
 Features
@@ -12,11 +15,11 @@ Features
 
 Ember Version
 -------------
-This app runs currently runs on [Ember.js 1.0 RC1](http://emberjs.com/blog/2013/02/15/ember-1-0-rc/)
+Currently running on [Ember.js 1.0 RC1](http://emberjs.com/blog/2013/02/15/ember-1-0-rc/)
 
 
-Getting Started
----------------
+Getting Started (when app ready)
+--------------------------------
 
 To run the app:
 
@@ -24,7 +27,7 @@ To run the app:
     $ bundle install
     $ bundle exec rake db:create
     $ bundle exec rake db:migrate
-    $ bundle exec rake db:seed    (will create a test user, or just register a new one from the app)
+    $ bundle exec rake db:seed
     $ rails server
 
 ###License

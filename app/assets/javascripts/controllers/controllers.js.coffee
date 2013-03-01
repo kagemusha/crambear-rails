@@ -31,11 +31,15 @@ App.WelcomeMsgController = Ember.ObjectController.extend
 
 App.SetsStudyController = Ember.ObjectController.extend
   showingFront: true
+  correctCount: 0
+  finished: false
   order: []
   cards: null
   init: -> log.log "SetsStudyController.init!! This gets called AUTOMATICALLY"
   start: (cards) ->
     @cards = cards
+    @set "finished", false
+    @set "total", cards.get("length")
     @orderCards()
     @next()
   orderCards: ->
@@ -53,6 +57,7 @@ App.SetsStudyController = Ember.ObjectController.extend
     log.log "action flipped"
     @set "showingFront", false
   correct: ->
+    @set "correctCount", @get("correctCount")+1
     log.log "action correct"
     @next()
   wrong: ->
@@ -61,6 +66,7 @@ App.SetsStudyController = Ember.ObjectController.extend
   next: ->
     @set "showingFront", true
     if @order.length==0
+      @set "finished", true
       #@render 'sets/set_actions', into: "set", outlet: "setActions"
     else
       cardId = @order.shift()
