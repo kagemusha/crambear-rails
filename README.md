@@ -1,4 +1,4 @@
-*** This project is under development and not usable yet***
+*** This project is under development and most functionality is not implemented yet***
 You can view the [non-Ember version](http://crambear2.herokuapp.com) to see what it will look like in future.
 
 Crambear
