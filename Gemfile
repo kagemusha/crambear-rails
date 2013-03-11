@@ -3,7 +3,7 @@ gem 'rails', '3.2.12'
 gem 'pg'
 
 gem 'jquery-rails'
-gem 'ember-rails'
+gem 'ember-rails', github: 'emberjs/ember-rails'
 gem 'emblem-rails', ">= 0.1.0"
 
 gem "rails_admin"
