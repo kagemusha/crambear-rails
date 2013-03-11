@@ -1,0 +1,8 @@
+table.table.table-striped.table-hover.cards
+  thead
+    tr
+      th.front Front
+      th.back Back
+      th.actions
+
+  App.CardTableRowsView contentBinding=controller

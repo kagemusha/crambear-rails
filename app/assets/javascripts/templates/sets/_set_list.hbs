@@ -1,9 +1,0 @@
-<strong>{{view.title}}</strong>
-<div class="actions">
-    {{#linkTo "sets.new" class="btn btn-small"}}New Set{{/linkTo}}
-</div>
-<ul class="nav nav-pills nav-stacked">
-  {{#each set in controller}}
-      <li>{{#linkTo set set}}{{set.name}}{{/linkTo}}</li>
-  {{/each}}
-</ul>

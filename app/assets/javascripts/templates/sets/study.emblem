@@ -1,0 +1,20 @@
+h3=finished
+if finished
+  .btn_bar
+    button.btn.btn-primary{action restart} Restart
+  .study_results
+    | You got #{correctCount} out of #{total} of right
+else
+  .btn_bar
+    if showingFront
+      button.btn.btn-primary{action flip} Flip
+    else
+      button.btn.btn-danger{action correct} Correct
+      button.btn.btn-danger{action wrong}  Wrong
+
+    unless showingFront
+      #cardBack.card.span6
+        = back
+    br
+    #cardFront.card.span6
+      = front
