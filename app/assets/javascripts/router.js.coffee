@@ -17,20 +17,34 @@ App.Router.map ->
     @route 'study', { path: ':set_id/study' }, ->
 
 
-App.HomeRoute = Ember.Route.extend
+App.HomeRoute = Em.Route.extend
   redirect: ->
     @transitionTo 'sets' if App.authenticated
 
-App.IndexRoute = Ember.Route.extend
+App.IndexRoute = Em.Route.extend
   redirect: ->
     @transitionTo 'home'
 
 
-App.SetsRoute = Ember.Route.extend
+App.SetsRoute = Em.Route.extend
   model: -> App.Set.find()
 
+App.SetsNewRoute = Em.Route.extend
 
-App.SetRoute = Ember.Route.extend
+  #Because we are maintaining a transaction locally in the controller for editing,
+  #the new record needs to be created in the controller.
+  model: ->
+    null
+
+  setupController: (controller) ->
+    log.log "SetsNewRoute: setupController"
+    controller.startEditing()
+
+  deactivate: ->
+    @controllerFor('sets.new').stopEditing()
+
+
+App.SetRoute = Em.Route.extend
   model: ->  App.Set.find(params?.set_id)
   setupController: (controller, model) ->
     log.log "SetRoute.setupController. Set: #{model.get("name")}"
@@ -41,7 +55,7 @@ App.SetRoute = Ember.Route.extend
 #    @render 'sets/set_actions', into: "set", outlet: "setActions"
 
 
-App.SetsStudyRoute = Ember.Route.extend
+App.SetsStudyRoute = Em.Route.extend
   model: ->  App.Set.find(params?.set_id)
   setupController: (controller, model) ->
     log.log "StudyRoute.setupController. Set: #{model.get("name")}"
@@ -55,13 +69,13 @@ App.SetsStudyRoute = Ember.Route.extend
     #controller.set 'content', set.get('cards')
 
 
-#App.HelpRoute = Ember.Route.extend
+#App.HelpRoute = Em.Route.extend
 #  events:
 #    logout: -> App.logout this
 
 
-App.LoginRoute = Ember.Route.extend
-  model: -> Ember.Object.create()
+App.LoginRoute = Em.Route.extend
+  model: -> Em.Object.create()
   setupController: (controller, model) ->
     controller.set "errorMsg", ""
   events:
@@ -72,8 +86,8 @@ App.LoginRoute = Ember.Route.extend
       log.info "Logging in..."
       App.login this
 
-App.RegistrationRoute = Ember.Route.extend
-  model: -> Ember.Object.create()
+App.RegistrationRoute = Em.Route.extend
+  model: -> Em.Object.create()
   events:
     register: ->
       log.info "Registering..."
