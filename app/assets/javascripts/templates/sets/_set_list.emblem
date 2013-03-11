@@ -1,4 +1,4 @@
-.actions
+.actions.sets
  linkTo sets.new class="btn btn-small" |  New Set
 ul.nav.nav-pills.nav-stacked
   each set in controller
