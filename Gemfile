@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.12'
-gem 'pg'
 
 gem 'jquery-rails'
 gem 'ember-rails', github: 'emberjs/ember-rails'
@@ -19,15 +18,15 @@ gem "bootstrap-sass", ">= 2.2.2.0"
 gem "devise", ">= 2.2.3"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
-gem "active_model_serializers"
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem "figaro", ">= 0.5.3"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
+  gem 'coffee-rails', '~> 3.2.1'
 end
-
 
 
 group :development do
@@ -49,5 +48,11 @@ end
 
 group :test, :development do
   gem 'konacha'
+  gem "sqlite3"
+  #gem 'pg'
   #gem 'poltergeist' #replace capy-webkit
+end
+
+group :production do
+  gem 'pg'
 end
