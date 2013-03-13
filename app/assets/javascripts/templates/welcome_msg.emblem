@@ -1,6 +1,6 @@
 if user
   .container-fluid
     .greeting
-      span.hello | Hi #{user.name}
+      span.hello Hi #{user.name}
       |  (#{user.email})
 
