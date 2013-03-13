@@ -8,6 +8,6 @@ App.WelcomeMsgController = Ember.ObjectController.extend
       null
   ).property("authState")
 
-#App.SetController = Ember.ObjectController.extend {}
+#App.CardSetController = Ember.ObjectController.extend {}
 
 

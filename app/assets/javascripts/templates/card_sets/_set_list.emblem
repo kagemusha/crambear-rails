@@ -1,0 +1,7 @@
+.actions.sets
+ linkTo card_sets.new class="btn btn-small" |  New Set
+ul.nav.nav-pills.nav-stacked
+  each card_set in controller
+    li
+      linkTo card_set card_set
+        = card_set.name

@@ -1,9 +1,9 @@
-App.SetsNewController = Em.ObjectController.extend
+App.CardSetsNewController = Em.ObjectController.extend
 
   startEditing: ->
     #create a new record on a local transaction
     @transaction = @get('store').transaction();
-    @set 'content', @transaction.createRecord(App.Set, {})
+    @set 'content', @transaction.createRecord(App.CardSet, {})
 
   stopEditing: ->
     #rollback the local transaction if it hasn't already been cleared
@@ -18,10 +18,10 @@ App.SetsNewController = Em.ObjectController.extend
 
   transitionAfterSave: ->
     log.log "trans after save"
-    @transitionToRoute 'sets'  #TODO
+    @transitionToRoute 'card_sets'  #TODO
 
   cancel: ->
     log.log "cancel"
     @stopEditing()
-    @transitionToRoute 'sets'
+    @transitionToRoute 'card_sets'
 

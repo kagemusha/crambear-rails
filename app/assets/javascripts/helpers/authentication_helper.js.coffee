@@ -8,7 +8,7 @@ App.login = (route) ->
     success: (data) ->
       App.currentUser =  data.user
       App.LoginStateManager.transitionTo "authenticated"
-      route.transitionTo 'sets'
+      route.transitionTo 'card_sets'
     error: (jqXHR, textStatus, errorThrown) ->
       if jqXHR.status==401
         route.controllerFor('login').set "errorMsg", "That email/password combo didn't work.  Please try again"

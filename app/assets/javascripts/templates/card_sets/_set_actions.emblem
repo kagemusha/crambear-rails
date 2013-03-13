@@ -1,4 +1,4 @@
-linkTo sets.study controller class="btn btn-primary" | Study
+linkTo card_sets.study controller class="btn btn-primary" | Study
 | &nbsp;
 button.btn.btn-primary{action addCard}  Add Card
 | &nbsp;

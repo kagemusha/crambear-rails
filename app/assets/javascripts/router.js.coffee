@@ -11,25 +11,25 @@ App.Router.map ->
   @route "help"
   @route "login"
   @route "registration"
-  @resource 'sets', ->
+  @resource 'card_sets', ->
     @route 'new'
-    @resource 'set', { path: ':set_id' }, ->
-    @route 'study', { path: ':set_id/study' }, ->
+    @resource 'card_set', { path: ':card_set_id' }, ->
+    @route 'study', { path: ':card_set_id/study' }, ->
 
 
 App.HomeRoute = Em.Route.extend
   redirect: ->
-    @transitionTo 'sets' if App.authenticated
+    @transitionTo 'card_sets' if App.authenticated
 
 App.IndexRoute = Em.Route.extend
   redirect: ->
     @transitionTo 'home'
 
 
-App.SetsRoute = Em.Route.extend
-  model: -> App.Set.find()
+App.CardSetsRoute = Em.Route.extend
+  model: -> App.CardSet.find()
 
-App.SetsNewRoute = Em.Route.extend
+App.CardSetsNewRoute = Em.Route.extend
 
   #Because we are maintaining a transaction locally in the controller for editing,
   #the new record needs to be created in the controller.
@@ -37,29 +37,30 @@ App.SetsNewRoute = Em.Route.extend
     null
 
   setupController: (controller) ->
-    log.log "SetsNewRoute: setupController"
+    log.log "CardSetsNewRoute: setupController"
     controller.startEditing()
 
   deactivate: ->
-    @controllerFor('sets.new').stopEditing()
+    @controllerFor('card_sets.new').stopEditing()
 
 
-App.SetRoute = Em.Route.extend
-  model: ->  App.Set.find(params?.set_id)
+App.CardSetRoute = Em.Route.extend
+  model: ->  App.CardSet.find(params?.card_set_id)
   setupController: (controller, model) ->
-    log.log "SetRoute.setupController. Set: #{model.get("name")}"
+    log.log "CardSetRoute.setupController. CardSet: #{model.get("name")}"
+    log.log "Card count #{model.get("cards")?.get("length")}"
     controller.set 'content', model
 #  renderTemplate: ->
-#    log.log "SetRoute renderTemplate"
+#    log.log "CardSetRoute renderTemplate"
 #    @render()
 #    @render 'sets/set_actions', into: "set", outlet: "setActions"
 
 
-App.SetsStudyRoute = Em.Route.extend
-  model: ->  App.Set.find(params?.set_id)
+App.CardSetsStudyRoute = Em.Route.extend
+  model: ->  App.CardSet.find(params?.set_id)
   setupController: (controller, model) ->
     log.log "StudyRoute.setupController. Set: #{model.get("name")}"
-    log.log "Card count #{model.get("cards").get("length")}"
+    log.log "Card count #{model.get("cards")?.get("length")}"
     controller.set 'content', model
     controller.start model.get("cards")
 

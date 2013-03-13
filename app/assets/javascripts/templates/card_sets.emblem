@@ -1,6 +1,6 @@
 #sets.span2
   .well.well-small.sidebar-nav-fixed
-      partial "sets/set_list"
+      partial "card_sets/set_list"
 
 .span9
   outlet

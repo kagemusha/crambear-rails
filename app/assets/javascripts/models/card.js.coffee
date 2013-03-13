@@ -1,5 +1,5 @@
 App.Card = DS.Model.extend
-  list: DS.belongsTo 'App.Set'
+  cardSet: DS.belongsTo 'App.CardSet'
 
   front: DS.attr 'string'
   back: DS.attr 'string'

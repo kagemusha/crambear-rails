@@ -1,10 +1,10 @@
-App.SetsStudyController = Ember.ObjectController.extend
+App.CardSetsStudyController = Ember.ObjectController.extend
   showingFront: true
   correctCount: 0
   finished: false
   order: []
   cards: null
-  init: -> log.log "SetsStudyController.init!! This gets called AUTOMATICALLY"
+  init: -> log.log "CardSetsStudyController.init!! This gets called AUTOMATICALLY"
   start: (cards) ->
     @cards = cards
     @set "finished", false
