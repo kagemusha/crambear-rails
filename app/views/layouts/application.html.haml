@@ -4,8 +4,8 @@
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
       %title= content_for?(:title) ? yield(:title) : "Crambear"
       %meta{:content => content_for?(:description) ? yield(:description) : "Crambear", :name => "description"}
-        = stylesheet_link_tag "application", :media => "all"
-        = javascript_include_tag "application"
+        = stylesheet_link_tag "application", :media => "all", :debug=>!Rails.env.production?
+        = javascript_include_tag "application", :debug=>!Rails.env.production?
         = csrf_meta_tags
         = yield(:head)
     :javascript
