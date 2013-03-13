@@ -6,11 +6,9 @@
       ul.nav
         li
           linkTo help | Help
-      /don't authentication for now
-      .hidden
-        .btn-group.pull-right
-          if authenticated
-              button.btn{action logout} Logout
-          else
-              App.MenuItem href="#/login" label="Login"
-              App.MenuItem href="#/registration" label="Register"
+      .btn-group.pull-right
+        if authenticated
+            button.btn{action logout} Logout
+        else
+            App.MenuItem href="#/login" label="Login"
+            App.MenuItem href="#/registration" label="Register"
