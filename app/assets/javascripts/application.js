@@ -20,5 +20,7 @@
 //= require ember-data
 //= require_self
 //= require ember_app
-App = Ember.Application.create();
+App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
 //= require_tree .
