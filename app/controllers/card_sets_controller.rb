@@ -1,7 +1,7 @@
 class CardSetsController < ApplicationController
 	before_filter :authenticate_user!
   respond_to :html, :json
-  #skip_before_filter :verify_authenticity_token, :only=>[:destroy]
+  skip_before_filter :verify_authenticity_token, :only=>[:destroy]
 
   def index
     render :json => current_user.card_sets
