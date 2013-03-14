@@ -4,7 +4,7 @@ h2 New Set
   .control-group
     label.control-label for="name" Set Name
     .controls
-      Ember.TextField valueBinding="name" id="name" action="create"
+      Em.TextField valueBinding="name" id="name" action="create"
   .form-actions
     input.btn.btn-primary{action save} type="submit" value="Create Set"
     | &nbsp;
