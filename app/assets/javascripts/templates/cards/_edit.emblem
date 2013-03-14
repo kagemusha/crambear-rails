@@ -1,9 +1,10 @@
-table
-  tr
-    td
-      Ember.TextField valueBinding="name" class="span4"
-<td>{{view Ember.TextField valueBinding="minutesEstimatedToComplete" type="number" class="span1"}}</td>
-<td class="actions">
-  <button class="btn btn-mini btn-primary" {{action save this}}>Save</button>
-  <button class="btn btn-mini" {{action cancelEditMode this}}>Cancel</button>
-</td>
+table.table.table-hover#cardForm
+  tbody
+    tr
+      td
+        Em.TextField valueBinding="front" placeholder="front"
+      td
+        Em.TextField valueBinding="back" placeholder="back"
+      td.actions
+        button.btn.btn-mini.btn-primary{action save this} Save
+        button.btn.btn-mini{action cancel this} Cancel

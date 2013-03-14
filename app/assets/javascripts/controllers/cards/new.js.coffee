@@ -1,5 +1,5 @@
 App.CardsNewController = Em.ObjectController.extend
-
+  needs: ["cardSet"]
   startEditing: ->
     #create a new record on a local transaction
     @transaction = @get('store').transaction();
@@ -23,5 +23,6 @@ App.CardsNewController = Em.ObjectController.extend
   cancel: ->
     log.log "cancel"
     @stopEditing()
+    @set "controllers.cardSet.isAddingItem", false
     #hide addCard
 

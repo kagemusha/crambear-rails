@@ -1,0 +1,2 @@
+.new_card
+  partial "cards/edit"
