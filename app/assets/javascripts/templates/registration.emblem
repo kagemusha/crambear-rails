@@ -1,4 +1,4 @@
-.form-horizontal
+form.form-horizontal
   legend Registration
   if errorMsg
     .alert.alert-error=errorMsg
@@ -19,7 +19,7 @@
   .control-group
     label class="control-label" for="password_confirmation" Confirm Password
     .controls
-      Ember.TextField valueBinding="password_confirmation" type="password" id="password_confirmation" action="create"}}
+      Ember.TextField valueBinding="password_confirmation" type="password" id="password_confirmation" action="create"
   .form-actions
     input.btn.btn-primary{action register} type="submit" value="Register"
     input.btn{action cancel} type="submit" value="Cancel"
