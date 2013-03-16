@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :except=>["new", "riri"]
-
+  before_filter :authenticate_user!
 
   def index
     @users = User.all
@@ -11,20 +10,6 @@ class UsersController < ApplicationController
   end
 
 
-#  def card_sets
-#    @user = current_user
-#    @card_sets = @user.card_sets
-#    #render :layout => 'multipage' if mobile_device?
-#  end
-
-  def riri
-    if params[:riri] == "gato"
-      @user = User.new(:email=>'')
-    else
-      flash[:notice] = "Successfully created user."
-      redirect_to :controller=>"main", :action=>"index"
-    end
-  end
   def new
     @user = User.new
   end
@@ -56,7 +41,6 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:notice] = "Successfully destroyed user."
     redirect_to users_url
   end
 
