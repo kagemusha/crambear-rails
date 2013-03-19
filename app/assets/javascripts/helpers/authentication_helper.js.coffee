@@ -1,4 +1,5 @@
-App.login = (route) ->
+App.Authentication ||= {}
+App.Authentication.login = (route) ->
   $.ajax
     url: App.urls.login
     type: "POST"
@@ -13,7 +14,30 @@ App.login = (route) ->
       if jqXHR.status==401
         route.controllerFor('login').set "errorMsg", "That email/password combo didn't work.  Please try again"
 
-App.register = (route) ->
+App.Authentication.logout = (transition) ->
+  log.info "Logging out..."
+  $.ajax
+    url: App.urls.logout
+    type: "DELETE"
+    dataType: "json"
+    success: ->
+      logoutSuccess(transition) #generally not called by Devise - see note in error function
+    error: (jqXHR, textStatus, errorThrown) ->
+      #Devise logout sends a 204, which JQuery interprests as error so handle here
+      if jqXHR.status==204
+        logoutSuccess(transition)
+      else
+        alert "Error logging out: #{errorThrown}"
+
+logoutSuccess = (transition) ->
+  log.info "Logged out on server"
+  App.currentUser = null
+  App.LoginStateManager.transitionTo 'notAuthenticated'
+  transition()
+
+App.Authentication.register = (route) ->
+  debugger
+  log.log "App.Authentication.register..."
   $.ajax
     url: App.urls.register
     type: "POST"
@@ -34,23 +58,3 @@ App.register = (route) ->
 
 
 
-App.logout = (transition) ->
-  log.info "Logging out..."
-  $.ajax
-    url: App.urls.logout
-    type: "DELETE"
-    dataType: "json"
-    success: ->
-      logoutSuccess(transition) #generally not called by Devise - see note in error function
-    error: (jqXHR, textStatus, errorThrown) ->
-      #Devise logout sends a 204, which JQuery interprests as error so handle here
-      if jqXHR.status==204
-        logoutSuccess(transition)
-      else
-        alert "Error logging out: #{errorThrown}"
-
-logoutSuccess = (transition) ->
-  log.info "Logged out on server"
-  App.currentUser = null
-  App.LoginStateManager.transitionTo 'notAuthenticated'
-  transition()

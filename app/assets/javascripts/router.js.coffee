@@ -55,6 +55,7 @@ App.CardSetRoute = Em.Route.extend
 #    @render()
 #    @render 'sets/set_actions', into: "set", outlet: "setActions"
 
+App.DataModelsRoute = Em.Route.extend
 
 App.CardSetsStudyRoute = Em.Route.extend
   model: ->  App.CardSet.find(params?.set_id)
@@ -72,7 +73,7 @@ App.CardSetsStudyRoute = Em.Route.extend
 
 #App.HelpRoute = Em.Route.extend
 #  events:
-#    logout: -> App.logout this
+#    logout: -> App.Authentication.logout this
 
 
 App.LoginRoute = Em.Route.extend
@@ -85,14 +86,14 @@ App.LoginRoute = Em.Route.extend
       @transitionTo 'home'
     login: ->
       log.info "Logging in..."
-      App.login this
+      App.Authentication.login this
 
 App.RegistrationRoute = Em.Route.extend
   model: -> Em.Object.create()
   events:
     register: ->
       log.info "Registering..."
-      App.register this
+      App.Authentication.register this
     cancel: ->
       log.info "cancelling registration"
       @transitionTo 'home'
