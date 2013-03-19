@@ -9,7 +9,7 @@ form.form-horizontal{action login content on="submit"}
   .control-group
     label.control-label for="password" Password
     .controls
-      Ember.TextField valueBinding="password" type="password" id="password" action="create"
+      Em.TextField valueBinding="password" type="password" id="password" action="create"
   .form-actions
     button.btn.btn-primary type="submit" value="Login" Login
     input.btn{action cancel} type="submit" value="Cancel"
