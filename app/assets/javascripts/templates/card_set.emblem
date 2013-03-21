@@ -1,5 +1,6 @@
 h3=name
 partial "card_sets/set_actions"
-if isAddingItem
+if showNewForm
   render "cards/new"
-render "cards/table" cards
+if hasCards
+  render "cards/table" cards
