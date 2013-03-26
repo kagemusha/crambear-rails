@@ -30,6 +30,28 @@ To run the app:
     $ bundle exec rake db:migrate
     $ bundle exec rake db:seed
     $ rails server
+    
+Data Model
+----------
+
+The basic data model is something like this:
+
+User
+- has many card_sets
+
+CardSet
+- belongs to user
+- has many cards
+- has many labels
+
+Card
+- belongs to card_set
+- has and belongs to many labels
+
+Label
+- belongs to card_set
+- has and belongs to many cards
+
 
 ###License
 Copyright 2013 Michael Madrid under the [MIT License](http://opensource.org/licenses/MIT)
