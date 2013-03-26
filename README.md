@@ -36,21 +36,21 @@ Data Model
 
 The basic data model is something like this:
 
-User
-- has many card_sets
+    User
+        has many card_sets
 
-CardSet
-- belongs to user
-- has many cards
-- has many labels
+    CardSet
+        belongs to user
+        has many cards
+        has many labels
 
-Card
-- belongs to card_set
-- has and belongs to many labels
+    Card
+        belongs to card_set
+        has and belongs to many labels
 
-Label
-- belongs to card_set
-- has and belongs to many cards
+    Label
+        belongs to card_set
+        has and belongs to many cards
 
 
 ###License
