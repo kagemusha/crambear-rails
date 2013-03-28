@@ -22,8 +22,8 @@ Ember Version
 Currently running on [Ember.js 1.0 RC1](http://emberjs.com/blog/2013/02/15/ember-1-0-rc/)
 
 
-Getting Started (when app ready)
---------------------------------
+Getting Started
+---------------
 
 To run the app:
 
@@ -37,7 +37,7 @@ To run the app:
 Data Model
 ----------
 
-The basic data model is something like this:
+The basic data model is:
 
     User
         has many card_sets
