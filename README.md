@@ -1,4 +1,4 @@
-*** This project is under development and most functionality is not implemented yet***
+*** WIP ***
 You can use the [non-Ember version](http://crambear2.herokuapp.com) to see what it will look like in future.
 
 Crambear
@@ -11,8 +11,10 @@ does something besides just CRUD.
 
 Features
 --------
-*
-*
+* Card Sets: create, update, delete (working)
+* Cards: create (working), edit (not working), delete (not working)
+* Labels for Card Sets and Cards: tbd
+* Authentication with Devise: working
 
 Ember Version
 -------------
@@ -51,6 +53,32 @@ The basic data model is something like this:
     Label
         belongs to card_set
         has and belongs to many cards
+
+Other Ember.js/Rails Resources
+------------------------------
+
+### Demos and Learning Resources
+
+The official guides:
+
+* http://emberjs.com/guides/
+
+Peepcode
+
+* [Ember.js Peepcode (Jan 2013)](https://peepcode.com/products/emberjs)
+
+  Definitely worthwhile, though found it easier to watch it at 2X speed as recitation a tad slow
+  
+I found both of the following demos helpful (and new ones appearing all the time):
+
+* [ember_data_examle](https://github.com/dgeb/ember_data_example)
+* [ember_todo](https://github.com/Skalar/ember_todo)
+
+### Add-ons
+
+  Think HTML/Handlebars too verbose?  Alex Matchneer is developing a [Slim](http://slim-lang.com/)-like templating solution:
+
+* [emblem.js](https://github.com/machty/emblem.js)
 
 
 ###License
