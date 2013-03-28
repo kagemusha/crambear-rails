@@ -1,0 +1,6 @@
+#card_set_name
+  if isEditingName
+    Em.TextField valueBinding="name"
+  else
+    h3=name
+

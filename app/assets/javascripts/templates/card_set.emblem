@@ -1,5 +1,5 @@
-h3=name
 partial "card_sets/set_actions"
+App.CardSetNameView
 if showNewForm
   render "cards/new"
 if hasCards

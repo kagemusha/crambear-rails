@@ -36,7 +36,6 @@ logoutSuccess = (transition) ->
   transition()
 
 App.Authentication.register = (route) ->
-  debugger
   log.log "App.Authentication.register..."
   $.ajax
     url: App.urls.register

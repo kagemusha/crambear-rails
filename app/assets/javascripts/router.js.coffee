@@ -1,4 +1,4 @@
-## In a real app you will probably want to separate components into different files
+## At some point want to move routes to own file
 ## They are grouped together here for ease of exposition
 
 #Notes
@@ -13,8 +13,8 @@ App.Router.map ->
   @route "registration"
   @resource 'card_sets', ->
     @route 'new'
-    @resource 'card_set', { path: ':card_set_id' }, ->
-    @route 'study', { path: ':card_set_id/study' }, ->
+    @resource 'card_set', { path: ':card_set_id' }
+    @route 'study', { path: ':card_set_id/study' }
 
 
 App.HomeRoute = Em.Route.extend
@@ -47,15 +47,11 @@ App.CardSetsNewRoute = Em.Route.extend
 App.CardSetRoute = Em.Route.extend
   model: ->  App.CardSet.find(params?.card_set_id)
   setupController: (controller, model) ->
-    log.log "CardSetRoute.setupController. CardSet: #{model.get("name")}"
-    log.log "Card count #{model.get("cards")?.get("length")}"
+    #log.log "CardSetRoute.setupController. CardSet: #{model.get("name")} has #{model.get("cards.length") cards"
     controller.set 'content', model
-#  renderTemplate: ->
-#    log.log "CardSetRoute renderTemplate"
-#    @render()
-#    @render 'sets/set_actions', into: "set", outlet: "setActions"
+    controller.set 'isEditingName', false
+    controller.addCards() if model.get("cards.length")==0
 
-App.DataModelsRoute = Em.Route.extend
 
 App.CardSetsStudyRoute = Em.Route.extend
   model: ->  App.CardSet.find(params?.set_id)

@@ -1,4 +1,4 @@
 App.CardsTableController = Em.ArrayController.extend
   needs: ['cardSet']
-  itemController: 'CardTableRow'
+  itemController: 'CardsTableRow'
   isAddingNew: false

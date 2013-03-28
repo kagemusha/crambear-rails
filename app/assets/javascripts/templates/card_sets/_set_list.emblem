@@ -1,5 +1,5 @@
 .actions.sets
- linkTo card_sets.new class="btn btn-small" |  New Set
+ linkTo card_sets.new id="new_set_btn" class="btn btn-small btn-primary" |  New Set
 ul.nav.nav-pills.nav-stacked
   each card_set in controller
     li

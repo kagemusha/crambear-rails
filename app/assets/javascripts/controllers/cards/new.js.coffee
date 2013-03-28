@@ -2,7 +2,8 @@ App.CardsNewController = Em.ObjectController.extend
   needs: ["cardSet"]
   startEditing: ->
     #create a new record on a local transaction
-    @transaction = @get('store').transaction();
+    log.log "CardsNewController:startEditing"
+    @transaction = @get('store').transaction()
     @set 'content', @transaction.createRecord(App.Card, {})
 
   stopEditing: ->
@@ -12,9 +13,12 @@ App.CardsNewController = Em.ObjectController.extend
       @transaction = null
 
   save: ->
-    log.log "save"
+    cardSet = @get("controllers.cardSet.content")
+    @content.set("cardSet", cardSet)
+    #debugger
     @transaction.commit();
     @transaction = null;
+    @startEditing()
 
   transitionAfterSave: ->
     log.log "trans after save"

@@ -1,0 +1,15 @@
+tr
+  if isEditing
+    td
+      Em.TextArea valueBinding="front" rows=4
+    td
+      Em.TextArea valueBinding="back" rows=4
+    td.actions
+      button.btn.btn-mini.btn-primary{action save content} Save
+      button.btn.btn-mini{action cancelEditMode content} Cancel
+  else
+    td=content.front
+    td=content.back
+    td.actions
+      button.btn.btn-mini.btn-warning{action enterEditMode content} Edit
+      button.btn.btn-mini.btn-warning{action deleteCard content} Delete

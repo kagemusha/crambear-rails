@@ -12,13 +12,15 @@ App.CardSetsNewController = Em.ObjectController.extend
       @transaction = null
 
   save: ->
-    log.log "save"
-    @transaction.commit();
+    @transaction.commit()
     @transaction = null;
+    log.log @content.get("name")
+    log.log @content.get("id")
 
-  transitionAfterSave: ->
-    log.log "trans after save"
-    @transitionToRoute 'card_sets'  #TODO
+    @transitionToRoute 'card_sets', @content  #TODO
+
+#  transitionAfterSave: ->
+#    log.log "trans after save"
 
   cancel: ->
     log.log "cancel"

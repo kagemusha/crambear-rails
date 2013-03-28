@@ -19,15 +19,22 @@ class CardSetsController < ApplicationController
     respond_with card_set
   end
   
-  #def update
-  #  contact = Contact.find(params[:id])
-  #  if update_contact(contact)
-  #    render json: contact, status: :ok
-  #  else
-  #    render json: contact.errors, status: :unprocessable_entity
-  #  end
-  #end
-  
+  def update
+    set = params["card_set"]
+    id = params.delete("id")
+    p "pms: #{params}"
+    params.delete "cards_count"
+    card_set = CardSet.find(id)
+    card_set.name = set["name"]
+    if card_set.save!
+      render json: card_set, status: :ok
+    else
+      render json: card_set.errors, status: :unprocessable_entity
+    end
+  end
+
+
+
   def destroy
     card_set = CardSet.find(params[:id])
     card_set.destroy

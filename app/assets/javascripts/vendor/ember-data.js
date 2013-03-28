@@ -8006,7 +8006,7 @@ DS.RESTAdapter = DS.Adapter.extend({
     if (hash.data && type !== 'GET') {
       hash.data = JSON.stringify(hash.data);
     }
-
+    console.log("EMDATA AJAX: " + hash.type +" "+url+"/  "+hash.data)
     jQuery.ajax(hash);
   },
 

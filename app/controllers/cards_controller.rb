@@ -13,7 +13,8 @@ class CardsController < ApplicationController
   end
   
   def create
-    card_set = current_user.card_sets.find(params[:card_set_id])
+    card_set_id = params[:card].delete(:card_set_id)
+    card_set = current_user.card_sets.find(card_set_id)
     card = Card.new params[:card]
     #updateArchAndLabels @card, params[:card]
     card_set.cards << card
