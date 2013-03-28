@@ -5,9 +5,10 @@
     .study_results
       | You got #{correctCount} out of #{total} of right
 
-.row
-  #cardFront.card.span8
-    = front
+unless finished
+  .row
+    #cardFront.card.span8
+      = front
 unless showingFront
   .row
     #cardBack.card.span8
