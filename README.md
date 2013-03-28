@@ -55,6 +55,11 @@ The basic data model is something like this:
         belongs to card_set
         has and belongs to many cards
 
+Some Current Issues
+-------------------
+* When create a new card set, how do you transition there immediately?
+* Can't seem to get reference to card when trying to add card to commit in App.CardsTableRowController enterEditMode()
+
 Helping Out
 -----------
 ...is welcomed!
