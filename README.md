@@ -6,7 +6,7 @@ Crambear
 
 Crambear is a flash cards app written in Rails and EmberJs.  Its aim is to provide a non-trivial example of
 an actual Ember.js app.  And by non-trivial I mean something will more than just 1 or 2 models and which
-does something besides just CRUD.  The Ember client is written in Coffeescript and uses 
+does something besides just CRUD.  The Ember client is written in [Coffeescript](http://coffeescript.org/) and uses 
 [Emblem.js](https://github.com/machty/emblem.js) templates.
 
 
