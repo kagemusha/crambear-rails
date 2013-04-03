@@ -45,7 +45,7 @@ App.CardSetsNewRoute = Em.Route.extend
 
 
 App.CardSetRoute = Em.Route.extend
-  model: ->  App.CardSet.find(params?.card_set_id)
+  model: (params) ->  App.CardSet.find(params?.card_set_id)
   setupController: (controller, model) ->
     #log.log "CardSetRoute.setupController. CardSet: #{model.get("name")} has #{model.get("cards.length") cards"
     controller.set 'content', model
@@ -54,7 +54,7 @@ App.CardSetRoute = Em.Route.extend
 
 
 App.CardSetsStudyRoute = Em.Route.extend
-  model: ->  App.CardSet.find(params?.set_id)
+  model: (params) ->  App.CardSet.find(params?.set_id)
   setupController: (controller, model) ->
     log.log "StudyRoute.setupController. Set: #{model.get("name")}"
     log.log "Card count #{model.get("cards")?.get("length")}"
@@ -73,7 +73,7 @@ App.CardSetsStudyRoute = Em.Route.extend
 
 
 App.LoginRoute = Em.Route.extend
-  model: -> Em.Object.create()
+  model: (params) -> Em.Object.create()
   setupController: (controller, model) ->
     controller.set "errorMsg", ""
   events:
@@ -85,7 +85,7 @@ App.LoginRoute = Em.Route.extend
       App.Authentication.login this
 
 App.RegistrationRoute = Em.Route.extend
-  model: -> Em.Object.create()
+  model: (params) -> Em.Object.create()
   events:
     register: ->
       log.info "Registering..."
