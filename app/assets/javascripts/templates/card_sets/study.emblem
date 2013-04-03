@@ -1,19 +1,20 @@
-.row
-  if finished
-    .btn_bar
-      button.btn.btn-primary{action restart} Restart
-    .study_results
-      | You got #{correctCount} out of #{total} of right
+.offset1
+  .row
+    if finished
+      .btn_bar
+        button.btn.btn-primary{action restart} Restart
+      .study_results
+        | You got #{correctCount} out of #{total} of right
 
-unless finished
-  .row
-    #cardFront.card.span8
-      = front
-unless showingFront
-  .row
-    #cardBack.card.span8
-      = back
   unless finished
-    .btn_bar
-      #correctBtn.button.btn.btn-success{action correct} Correct
-      button.btn.btn-danger{action wrong}  Wrong
+    .row
+      #cardFront.card.span9
+        = front
+  unless showingFront
+    .row
+      #cardBack.card.span9
+        = back
+    unless finished
+      .btn_bar.offset1
+        #correctBtn.button.btn.btn-success{action correct} Correct
+        button.btn.btn-danger{action wrong}  Wrong
