@@ -2,9 +2,13 @@ App.CardsTableRowController = Em.ObjectController.extend
   isEditing: false
   enterEditMode: ->
     log.log "CardsTableRowController:enterEditMode"
-    log.log Ember.inspect(@get('content'))
     @set "isEditing", true
-    card = @get('content')
+
+    #content here seems to be the controller so need to get content.content
+    #not sure why content here is the controller and not the model
+    card = @get('content.content')
+
+    log.log Ember.inspect card
     @transaction = card.get('store').transaction()
     @transaction.add card
 

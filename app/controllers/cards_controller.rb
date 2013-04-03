@@ -23,6 +23,15 @@ class CardsController < ApplicationController
   end
   
   def update
+    card = Card.find(params["id"])
+    card_params = params["card"]
+    card_params.delete "card_set_id"
+    card.update_attributes card_params
+    if card.save!
+      render json: card, status: :ok
+    else
+      render json: card.errors, status: :unprocessable_entity
+    end
   end
   
   def destroy
@@ -30,6 +39,7 @@ class CardsController < ApplicationController
     card.destroy
     render json: nil, status: :ok
   end
+
 
   private
 
