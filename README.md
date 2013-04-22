@@ -19,7 +19,7 @@ Features
 
 Ember Version
 -------------
-Currently running on [Ember.js 1.0 RC2](http://emberjs.com/blog/2013/03/30/ember-1-0-rc2.html)
+Currently running on [Ember.js 1.0 RC3](http://emberjs.com/blog/2013/04/21/ember-1-0-rc3.html)
 
 
 Getting Started
