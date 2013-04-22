@@ -42,16 +42,20 @@ App.CardSetsNewRoute = Em.Route.extend
 
   deactivate: ->
     @controllerFor('card_sets.new').stopEditing()
+  events:
+    setCreated: (cardSet) ->
+      log.log "setCreated", cardSet.get('name')
+      @transitionTo 'card_set', cardSet
+
 
 
 App.CardSetRoute = Em.Route.extend
-  model: (params) ->  App.CardSet.find(params?.card_set_id)
+  model: (params) -> App.CardSet.find(params?.card_set_id)
   setupController: (controller, model) ->
-    #log.log "CardSetRoute.setupController. CardSet: #{model.get("name")} has #{model.get("cards.length") cards"
+    log.log "CardSetRoute.setupController. CardSet: #{model.get("name")} has #{model.get("cards.length")} cards"
     controller.set 'content', model
     controller.set 'isEditingName', false
     controller.addCards() if model.get("cards.length")==0
-
 
 App.CardSetsStudyRoute = Em.Route.extend
   model: (params) ->  App.CardSet.find(params?.set_id)
