@@ -4,16 +4,22 @@ App.CardSetsStudyController = Ember.ObjectController.extend
   finished: false
   order: []
   cards: null
+  total: (->
+    #cards =
+    if @get("cards") then  @get("cards.length") else 0
+  ).property("cards")
   init: -> log.log "CardSetsStudyController.init!! This gets called AUTOMATICALLY"
   start: (cards) ->
-    @cards = cards
+    @set "cards", cards
+    @restart()
+  restart: ->
     @set "finished", false
-    @set "total", cards.get("length")
+    @set "correctCount", 0
     @orderCards()
     @next()
   orderCards: ->
     log.log "orderC"
-    @order = [0..@get("cards").get("length")-1]
+    @order = [0..@get("total")-1]
     log.log "orderLen: #{@order.length}"
   currentCard: null
   front: (->
