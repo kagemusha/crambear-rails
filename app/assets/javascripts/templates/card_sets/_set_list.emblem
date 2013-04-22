@@ -1,7 +1,10 @@
 .actions.sets
  linkTo card_sets.new id="new_set_btn" class="btn btn-small btn-primary" |  New Set
-ul.nav.nav-pills.nav-stacked
+ul#card_sets.nav.nav-pills.nav-stacked
   each card_set in controller
     li
       linkTo card_set card_set
         = card_set.name
+  else
+    li.no_cards.text-info
+      | Login or register

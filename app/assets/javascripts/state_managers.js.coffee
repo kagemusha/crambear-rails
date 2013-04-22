@@ -1,6 +1,8 @@
 #if have lots of state managers probably want a separate directory with file for each like other ember objects
 App.LoginStateManager = Ember.StateManager.create
   initialState: 'notAuthenticated'
+  isAuthenticated: ->
+    @currentState == @authenticated
   authenticated: Ember.State.create
     enter: -> log.info "LoginStateManager enter state: " + this.name
     logout: (manager, context) ->

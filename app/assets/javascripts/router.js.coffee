@@ -27,14 +27,18 @@ App.IndexRoute = Em.Route.extend
 
 
 App.CardSetsRoute = Em.Route.extend
-  model: -> App.CardSet.find()
+  model: ->
+    #is the authentication check here cheesy, and seems for state managers
+    #must refer to them directly instead of w get?  seems inconsistent
+    authenticated = App.LoginStateManager.isAuthenticated()
+
+    if authenticated then App.CardSet.find() else []
 
 App.CardSetsNewRoute = Em.Route.extend
 
   #Because we are maintaining a transaction locally in the controller for editing,
   #the new record needs to be created in the controller.
-  model: ->
-    null
+  model: -> null
 
   setupController: (controller) ->
     log.log "CardSetsNewRoute: setupController"
