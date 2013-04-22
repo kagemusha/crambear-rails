@@ -8,7 +8,11 @@ EMBER_CARDS = [
     ["What is Ember's test data store adapter?","adapter: 'DS.FixtureAdapter'"],
     ["What controller property allows it to access another controller?", "needs\n\nApp.NeedyController = Em.Controller.extend\n  needs: ['neededController']"],
     ["What setting allows you to output route transitions", "LOG_TRANSITIONS\n\nApp = Ember.Application.create({LOG_TRANSITIONS: true});"],
-    ["How do you make a controller attribute depend on other things", "With the property method e.g. attribute: (someFunction).property('iDependOnThisProp', 'andThisProp')"]
+    ["How do you make a controller attribute depend on other things", "With the property method e.g. attribute: (someFunction).property('iDependOnThisProp', 'andThisProp')"],
+    ["What is Ember.K?", "An empty function: Ember.K = function() { return this; }; "],
+    ["What is Ember.$?", "An alias for jQuery: Ember.$ = jQuery;"],
+
+#["",""],
 ]
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
