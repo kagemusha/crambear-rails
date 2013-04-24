@@ -1,5 +1,5 @@
 *** WIP ***
-You can use the [non-Ember version](http://crambear2.herokuapp.com) to see what it will look like in future.
+You can use the [non-Ember version](http://crambear2.herokuapp.com) to see a full implementation.
 
 Crambear
 =======================
@@ -12,10 +12,10 @@ does something besides just CRUD.  The Ember client is written in [Coffeescript]
 
 Features
 --------
-* Card Sets: create, update, delete (working)
-* Cards: create (working), edit (not working), delete (not working)
+* Card Sets: create, update, delete (implemented)
+* Cards: create, edit, delete (implemented)
 * Labels for Card Sets and Cards: tbd
-* Authentication with Devise: working
+* Authentication with Devise: implemented
 
 Ember Version
 -------------
