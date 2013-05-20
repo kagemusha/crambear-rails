@@ -11,9 +11,12 @@ EMBER_CARDS = [
     ["How do you make a controller attribute depend on other things", "With the property method e.g. attribute: (someFunction).property('iDependOnThisProp', 'andThisProp')"],
     ["What is Ember.K?", "An empty function: Ember.K = function() { return this; }; "],
     ["What is Ember.$?", "An alias for jQuery: Ember.$ = jQuery;"],
-
 #["",""],
 ]
+
+RUBY_LABELS = ["archived","important"]
+EMBER_LABELS = ["archived","important"]
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -22,18 +25,23 @@ EMBER_CARDS = [
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-def create_set(name, cards)
-  set = CardSet.create!(name: name)
+def create_set(name, cards, labels)
+  set = CardSet.new(name: name)
   cards.each do |card|
     set.cards << Card.new(front: card[0], back: card[1])
   end
+  labels.each do |label|
+    set.labels << Label.new(name: label)
+  end
+  set.save!
   set
 end
 
-user = User.create! :name => "TestUser", :email => "test@test.com", :password => "tester", :password_confirmation => "tester"
+CardSet.destroy_all
+user = User.first_or_create(:name => "TestUser", :email => "test@test.com", :password => "tester", :password_confirmation => "tester")
 
 
 
-user.card_sets << create_set("Ember", EMBER_CARDS)
-user.card_sets << create_set("Ruby", RUBY_CARDS)
+user.card_sets << create_set("Ember", EMBER_CARDS, EMBER_LABELS)
+user.card_sets << create_set("Ruby", RUBY_CARDS, RUBY_LABELS)
 user.save!

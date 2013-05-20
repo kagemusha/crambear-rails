@@ -1,0 +1,5 @@
+#label_panel
+  strong Labels:
+  ul#set_labels
+    each label in content
+      li.set_label=label.name
