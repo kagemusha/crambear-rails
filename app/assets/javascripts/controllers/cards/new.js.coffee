@@ -18,11 +18,11 @@ App.CardsNewController = Em.ObjectController.extend
     #debugger
     @transaction.commit();
     @transaction = null;
-    @startEditing()
+    #@startEditing()
 
-  transitionAfterSave: ->
-    log.log "trans after save"
-    #hide addCard
+#  transitionAfterSave: ->
+#    log.log "trans after save"
+#    #hide addCard
 
   cancel: ->
     log.log "cancel"

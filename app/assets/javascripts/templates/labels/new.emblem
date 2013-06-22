@@ -1,0 +1,7 @@
+#new-label
+  #label-form
+    label Add Labels:
+    Em.TextField valueBinding="name" placeholder="new label"
+    #label-buttons
+      button.btn.btn-mini.btn-primary{action save this} Save
+      button.btn.btn-mini{action cancel controller} Close

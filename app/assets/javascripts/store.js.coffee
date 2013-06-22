@@ -7,7 +7,4 @@ App.Store = DS.Store.extend
   adapter:  App.Adapter.create()
 
 
-#App.Store = DS.Store.extend
-#  revision: 11
-#  adapter: 'DS.FixtureAdapter' #for testing
 
