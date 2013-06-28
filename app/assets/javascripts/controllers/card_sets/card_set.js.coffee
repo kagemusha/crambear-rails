@@ -1,5 +1,6 @@
 App.CardSetController = Em.ObjectController.extend
-  needs: ["cardsNew"]
+  needs: ["cardsNew","cardSetLabels"]
+
   isAddingItem: false
   isEditingName: false
   showNewForm: (->

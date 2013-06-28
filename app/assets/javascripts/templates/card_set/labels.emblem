@@ -1,7 +1,6 @@
 #label_panel
   if isEditing
-    | i'm editing
-    button{action cancelEdit} Cancel
+    button{action cancel controller} Cancel
   else
     if isAdding
       render "labels/new"
@@ -12,7 +11,8 @@
           button.btn.btn-mini.btn-primary{action add} Add
           | &nbsp;
           button.btn.btn-mini.btn-primary{action edit} Edit
-    #labels
-      ul#set_labels
-        each label in content
-          li.set_label=label.name
+
+  #labels
+    ul#set_labels
+      each label in content
+        render "labels/item" label

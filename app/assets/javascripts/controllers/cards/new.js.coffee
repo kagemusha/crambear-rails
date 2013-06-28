@@ -15,7 +15,6 @@ App.CardsNewController = Em.ObjectController.extend
   save: ->
     cardSet = @get("controllers.cardSet.content")
     @content.set("cardSet", cardSet)
-    #debugger
     @transaction.commit();
     @transaction = null;
     #@startEditing()

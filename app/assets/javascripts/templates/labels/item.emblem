@@ -1,0 +1,5 @@
+li.set_label{bindAttr class="isEditing"}
+  if isEditing
+    button.btn.btn-danger.btn-mini{action delete} X
+    | &nbsp;
+  = name

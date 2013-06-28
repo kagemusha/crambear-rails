@@ -23,7 +23,6 @@ App.CardsTableRowController = Em.ObjectController.extend
     @set 'isEditing', false
   deleteCard: ->
     log.log "CardsTableRowController:delete>>"
-    #debugger
     item = @get('model.content')
     log.log Ember.inspect(item)
     log.log "ItemType: #{item.get("type")} Id: #{item.get("id")}"

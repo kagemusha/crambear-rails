@@ -2,6 +2,6 @@ partial "card_sets/set_actions"
 App.CardSetNameView
 if showNewForm
   render "cards/new"
-render "card_sets/labels" labels
+render card_set/labels
 if hasCards
   render "cards/table" cards

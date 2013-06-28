@@ -1,5 +1,5 @@
 App.LabelsNewController = Em.ObjectController.extend
-  needs: ["cardSet", "cardSetsLabels"]
+  needs: ["cardSet", "cardSetLabels"]
   startEditing: ->
     #create a new record on a local transaction
     log.log "LabelsNewController:startEditing"
@@ -14,10 +14,9 @@ App.LabelsNewController = Em.ObjectController.extend
 
   save: ->
     name = @.get("content.name")
-    debugger
     if Em.isEmpty(name)
       return
-    if @get("controllers.cardSetsLabels.content").findProperty("name",name)
+    if @get("controllers.cardSetLabels.content").findProperty("name",name)
       alert("dup!")
       return
     cardSet = @get("controllers.cardSet.content")

@@ -28,7 +28,6 @@ App.IndexRoute = Em.Route.extend
 
 App.CardSetsRoute = Em.Route.extend
   model: ->
-    #debugger
     #is the authentication check here cheesy, and seems for state managers
     #must refer to them directly instead of w get?  seems inconsistent
     authenticated = App.LoginStateManager.isAuthenticated()
@@ -62,8 +61,7 @@ App.CardSetRoute = Em.Route.extend
     controller.set 'content', model
     controller.set 'isEditingName', false
     controller.addCards() if model.get("cards.length")==0 #show new card form if no cards
-    @controllerFor('cardSetsLabels').set('content', model.get('labels'))
-
+    @controllerFor('cardSetLabels').set('content', model.get('labels'))
 
 App.CardSetsStudyRoute = Em.Route.extend
   model: (params) ->  App.CardSet.find(params?.set_id)
@@ -73,15 +71,6 @@ App.CardSetsStudyRoute = Em.Route.extend
     controller.set 'content', model
     controller.start model.get("cards")
 
-#    controller.set "currentCard", model.get("cards").objectAt(0)
-#    log.log "card front: #{controller.get("currentCard").get("front")}"
-#    log.log "card back: #{controller.get("currentCard").get("back")}"
-    #controller.set 'content', set.get('cards')
-
-
-#App.HelpRoute = Em.Route.extend
-#  events:
-#    logout: -> App.Authentication.logout this
 
 
 App.LoginRoute = Em.Route.extend
