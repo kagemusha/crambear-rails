@@ -15,8 +15,8 @@
 //= require bootstrap
 
 //= require handlebars
-//= require vendor/ember-1.0.0-rc.3
-//= require vendor/ember-data
+//= require vendor/ember
+//= require ember-data
 //= require_self
 //= require ember_app
 App = Ember.Application.create({

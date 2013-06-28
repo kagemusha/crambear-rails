@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.12'
 
 gem 'jquery-rails'
-gem 'ember-rails', github: 'emberjs/ember-rails'
+gem 'ember-rails'
+gem 'ember-source', '1.0.0.rc6' # or the version you need
+gem 'handlebars-source', '1.0.0.rc4' #
 gem 'emblem-rails', ">= 0.1.0"
 
 gem "rails_admin"
