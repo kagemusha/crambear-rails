@@ -1,10 +1,15 @@
-App.CardSetLabelsController = Em.ObjectController.extend
-  needs: ["labelsNew","labelsItem","cardSet"]
-  itemController: "labelsItem"
+App.CardSetLabelsController = Em.ArrayController.extend
+  needs: ["labelsNew","cardSet"]
+  itemController: "label"
+  saveMsg: "Ready"
+  init: ->
+    @._super()
+    log.log "CardSetLabelsCntrl init"
+
   state: "viewing"
   isViewing: (-> @get('state')=="viewing").property("state")
   isAdding: (-> @get('state')=="adding").property("state")
-  isEditing:Em.computed.equal('state', 'editing')
+  isEditing: Em.computed.equal('state', 'editing')
   add: ->
     @set 'state', "adding"
     @get("controllers.labelsNew").startEditing()

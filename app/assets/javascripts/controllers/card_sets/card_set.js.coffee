@@ -1,5 +1,5 @@
 App.CardSetController = Em.ObjectController.extend
-  needs: ["cardsNew","cardSetLabels"]
+  needs: ["cardsNew"]
 
   isAddingItem: false
   isEditingName: false
@@ -7,7 +7,7 @@ App.CardSetController = Em.ObjectController.extend
     @get('isAddingItem') or not @get('hasCards')
   ).property('hasCards', 'isAddingItem')
   hasCards: (->
-    log.log "hasCards", @get('content.cards.length')
+    log.log "set #{@get('name')} hasCards", @get('content.cards.length')
     @get('content.cards.length') > 0
   ).property('content.cards.length')
   editName: ->

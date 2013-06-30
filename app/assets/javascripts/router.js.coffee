@@ -52,8 +52,6 @@ App.CardSetsNewRoute = Em.Route.extend
       @transitionTo 'card_set', cardSet
 
 
-
-
 App.CardSetRoute = Em.Route.extend
   model: (params) -> App.CardSet.find(params?.card_set_id)
   setupController: (controller, model) ->
@@ -61,6 +59,7 @@ App.CardSetRoute = Em.Route.extend
     controller.set 'content', model
     controller.set 'isEditingName', false
     controller.addCards() if model.get("cards.length")==0 #show new card form if no cards
+    @controllerFor('cardSetCards').set('content', model.get('cards'))
     @controllerFor('cardSetLabels').set('content', model.get('labels'))
 
 App.CardSetsStudyRoute = Em.Route.extend
@@ -69,9 +68,6 @@ App.CardSetsStudyRoute = Em.Route.extend
     log.log "StudyRoute.setupController. Set: #{model.get("name")}"
     log.log "Card count #{model.get("cards")?.get("length")}"
     controller.set 'content', model
-    controller.start model.get("cards")
-
-
 
 App.LoginRoute = Em.Route.extend
   model: (params) -> Em.Object.create()

@@ -1,6 +1,10 @@
+
 #label_panel
   if isEditing
-    button{action cancel controller} Cancel
+    .buttons
+      button{action cancel controller} Cancel
+      | &nbsp;&nbsp;
+      = saveMsg
   else
     if isAdding
       render "labels/new"
@@ -14,5 +18,6 @@
 
   #labels
     ul#set_labels
-      each label in content
-        render "labels/item" label
+      each controller
+        template "labels/item"
+

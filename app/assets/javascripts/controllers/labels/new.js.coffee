@@ -17,7 +17,7 @@ App.LabelsNewController = Em.ObjectController.extend
     if Em.isEmpty(name)
       return
     if @get("controllers.cardSetLabels.content").findProperty("name",name)
-      alert("dup!")
+      alert("The label '#{name}' already exists!")
       return
     cardSet = @get("controllers.cardSet.content")
     @content.set("cardSet", cardSet)
