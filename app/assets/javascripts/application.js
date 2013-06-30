@@ -16,7 +16,7 @@
 
 //= require handlebars
 //= require vendor/ember
-//= require ember-data
+//= require vendor/ember-data
 //= require_self
 //= require ember_app
 App = Ember.Application.create({
