@@ -5,6 +5,6 @@ table.table.table-striped.table-hover.cards
       th.back Back
       th.actions
   tbody
-    each controller itemController="cardsTableRow"
-      partial "cards/table_row"
+    each controller itemController="card"
+      template "cards/card_row"
 

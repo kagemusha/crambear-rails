@@ -1,7 +1,7 @@
-App.CardsTableRowController = Em.ObjectController.extend
+App.CardController = Em.ObjectController.extend
   isEditing: false
   enterEditMode: ->
-    log.log "CardsTableRowController:enterEditMode"
+    log.log "CardController:enterEditMode"
     @set "isEditing", true
 
     #content here seems to be the controller so need to get content.content
@@ -10,19 +10,20 @@ App.CardsTableRowController = Em.ObjectController.extend
 
     log.log Ember.inspect card
     @transaction = card.get('store').transaction()
+    debugger
     @transaction.add card
 
   cancelEditMode: ->
     #cancel TX
-    log.log "CardsTableRowController:cancelEditMode"
+    log.log "CardController:cancelEditMode"
     @set "isEditing", false
   save: ->
-    log.log "CardsTableRowController:save"
+    log.log "CardController:save"
     @transaction.commit()
     @transaction = undefined
     @set 'isEditing', false
   deleteCard: ->
-    log.log "CardsTableRowController:delete>>"
+    log.log "CardController:delete>>"
     item = @get('model.content')
     log.log Ember.inspect(item)
     log.log "ItemType: #{item.get("type")} Id: #{item.get("id")}"
