@@ -14,7 +14,7 @@ Features
 --------
 * Card Sets: create, update, delete (implemented)
 * Cards: create, edit, delete (implemented)
-* Labels for Card Sets and Cards: tbd
+* Labels for Card Sets and Cards: you can add to sets - next step is ability to label cards
 * Authentication with Devise: implemented
 
 Ember Version
