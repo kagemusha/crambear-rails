@@ -1,6 +1,5 @@
 App.CardSetController = Em.ObjectController.extend
   needs: ["cardsNew"]
-
   isAddingItem: false
   isEditingName: false
   showNewForm: (->
@@ -12,7 +11,7 @@ App.CardSetController = Em.ObjectController.extend
   ).property('content.cards.length')
   editName: ->
     @set 'isEditingName', true
-    log.log Ember.inspect(@get('content'))
+    log.log "editt: " + @get('isEditingName')
     set = @get('content')
     @transaction = set.get('store').transaction()
     @transaction.add set

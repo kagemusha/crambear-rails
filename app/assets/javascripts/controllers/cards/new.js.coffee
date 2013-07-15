@@ -17,11 +17,7 @@ App.CardsNewController = Em.ObjectController.extend
     @content.set("cardSet", cardSet)
     @transaction.commit();
     @transaction = null;
-    #@startEditing()
-
-#  transitionAfterSave: ->
-#    log.log "trans after save"
-#    #hide addCard
+    @startEditing()    #w/out this line, create card will remain target of editor
 
   cancel: ->
     log.log "cancel"
