@@ -16,6 +16,8 @@
 
 //= require handlebars
 //= require vendor/ember
+//= require vendor/handlebars-1.0.0-rc.4
+//= require vendor/ember-1.0.0-rc.6
 //= require vendor/ember-data
 //= require_self
 //= require ember_app
