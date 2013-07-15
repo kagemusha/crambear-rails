@@ -1,4 +1,4 @@
-App.CardSetLabelsController = Em.ArrayController.extend
+App.CardSetLabelsController = Em.ArrayController.extend App.Mixins.EditState,
   needs: ["labelsNew","cardSet"]
   itemController: "label"
   saveMsg: "Ready"
@@ -6,16 +6,11 @@ App.CardSetLabelsController = Em.ArrayController.extend
     @._super()
     log.log "CardSetLabelsCntrl init"
 
-  state: "viewing"
-  isViewing: (-> @get('state')=="viewing").property("state")
-  isAdding: (-> @get('state')=="adding").property("state")
-  isEditing: Em.computed.equal('state', 'editing')
   add: ->
     @set 'state', "adding"
     @get("controllers.labelsNew").startEditing()
   edit: ->
     @set 'state', "editing"
-  cancel: -> @set 'state', "viewing"
   saveAdd: ->
     @set 'state', "viewing"
   stopEditing: -> Em.K()
