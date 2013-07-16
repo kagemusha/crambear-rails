@@ -1,6 +1,9 @@
 #card_set_name
   if isEditingName
     Em.TextField valueBinding="name"
+    br
+    .instruction
+      | Click to Cancel, Press Enter to Save
   else
     h3=name
 

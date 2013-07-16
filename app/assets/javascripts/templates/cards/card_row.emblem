@@ -11,5 +11,10 @@ tr
     td=content.front
     td=content.back
     td.actions
-      button.btn.btn-mini.btn-warning{action enterEditMode content} Edit
-      button.btn.btn-mini.btn-warning{action deleteCard content} Delete
+      .button_div
+        button.btn.btn-mini.btn-warning{action enterEditMode content} Edit
+        button.btn.btn-mini.btn-warning{action delete content} Delete
+        br
+        App.CardLabelsView contentBinding="labels"
+        /each label in labels
+        /  = label.name
