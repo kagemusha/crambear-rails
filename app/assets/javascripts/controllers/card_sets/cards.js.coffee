@@ -1,10 +1,8 @@
 App.CardSetCardsController = Em.ArrayController.extend
-  needs: ['cardSet']
+  needs: ['cardSet', 'cardSetLabels']
+  labels: Em.computed.alias('controllers.cardSetLabels.content')
   itemController: 'card'
   isAddingNew: false
-#  init: ->
-#    @._super()
-#    log.log "CardSetCardsCntrl init"
 
 #  state: "viewing"
 #  isViewing: (-> @get('state')=="viewing").property("state")
