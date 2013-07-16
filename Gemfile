@@ -45,16 +45,13 @@ group :test do
   gem 'capybara-screenshot'
 end
 
+gem 'pg'
+gem 'postgres_ext'
+
 group :test, :development do
   gem "rspec-rails", ">= 2.12.2"
   gem "factory_girl_rails", ">= 4.2.0"
   gem 'konacha'
-  gem "sqlite3"
-
-  #gem 'pg'
   #gem 'poltergeist' #replace capy-webkit
 end
 
-group :production do
-  gem 'pg'
-end

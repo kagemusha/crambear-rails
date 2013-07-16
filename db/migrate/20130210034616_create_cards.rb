@@ -5,8 +5,7 @@ class CreateCards < ActiveRecord::Migration
       t.boolean :archived, :default=>false
       t.text :front
       t.text :back
-      t.text :labels_array
-      t.datetime :last_viewed
+      t.string   :label_ids,  default: [], array: true
       t.integer :times_viewed
       t.integer :times_correct
       t.integer :recent_corrects

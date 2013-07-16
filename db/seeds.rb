@@ -34,6 +34,8 @@ def create_set(name, cards, labels)
     set.labels << Label.new(name: label)
   end
   set.save!
+  set.cards.first.label_ids = [set.labels.first.id]
+  set.save!
   set
 end
 
