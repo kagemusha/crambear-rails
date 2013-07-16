@@ -1,5 +1,7 @@
 App.CardController = Em.ObjectController.extend
+  needs: ['cardSetLabels']
   isEditing: false
+  labels: Em.computed.alias("controllers.cardSetLabels.model")
   enterEditMode: ->
     log.log "CardController:enterEditMode"
     @set "isEditing", true
@@ -10,7 +12,6 @@ App.CardController = Em.ObjectController.extend
 
     log.log Ember.inspect card
     @transaction = card.get('store').transaction()
-    debugger
     @transaction.add card
 
   cancelEditMode: ->
@@ -22,14 +23,12 @@ App.CardController = Em.ObjectController.extend
     @transaction.commit()
     @transaction = undefined
     @set 'isEditing', false
-  deleteCard: ->
-    log.log "CardController:delete>>"
+  delete: ->
+    log.log "status: ", @status
     item = @get('model.content')
-    log.log Ember.inspect(item)
-    log.log "ItemType: #{item.get("type")} Id: #{item.get("id")}"
     if (window.confirm("Are you sure you want to delete this card?"))
-      log.log "front: #{@get('model.front')}"
+      @transaction = item.get('store').transaction()
+      @transaction.add(item)
       item.deleteRecord()
-      @get('store').commit()
-#      @get('target.router').transitionTo('card_sets.index')
+      @transaction.commit();
 

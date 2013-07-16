@@ -3,16 +3,18 @@ App.LabelController = Em.ObjectController.extend
   isEditing: Ember.computed.alias('controllers.cardSetLabels.isEditing')
   isDirty: Em.computed.bool('content.isDirty')
   delete: ->
-    log.log "LabelController:delete>> set: #{@content.get('name')}"
+    item = @get('model')
     if (window.confirm("Are you sure you want to delete label #{@content.get('name')}?"))
-      @get('content').deleteRecord()
-      @get('store').commit()
+      @transaction = item.get('store').transaction()
+      @transaction.add(item)
+
+      item.deleteRecord()
+      @transaction.commit();
   startEditing: ->
     model = @get('model')
     log.log "LabelController:startEditing: #{model.get('name')}"
     @transaction = model.get('store').transaction()
     @transaction.add(model)
-    #@transaction = transaction
 
   save: ->
     name = @.get("content.name")
