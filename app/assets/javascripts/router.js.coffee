@@ -17,22 +17,34 @@ App.Router.map ->
     @route 'study', { path: ':card_set_id/study' }
 
 
-App.HomeRoute = Em.Route.extend
-  redirect: ->
-    @transitionTo 'card_sets' if App.authenticated
 
 App.IndexRoute = Em.Route.extend
-  redirect: ->
-    @transitionTo 'home'
+  beforeModel: ->
+    if App.authenticated
+      @transitionTo 'card_sets'
+    else
+      @transitionTo 'home'
 
 
 App.CardSetsRoute = Em.Route.extend
+  beforeModel: -> log.log "CardSetsRoute: beforeModel"
+
   model: ->
     #is the authentication check here cheesy, and seems for state managers
     #must refer to them directly instead of w get?  seems inconsistent
-    authenticated = App.LoginStateManager.isAuthenticated()
+      log.log "CardSetsRoute: find card sets"
+      if App.LoginStateManager.isAuthenticated()
+        App.CardSet.find()
+      else
+        Em.A()
 
-    if authenticated then App.CardSet.find() else []
+  afterModel: (cardSets, transition) ->
+    log.log "CardSetsRoute aftermodel: trans to card set"
+    cardSets.then (sets) ->
+      log.log "cardSets.then"
+      if (sets.length > 0)
+        @transitionTo 'card_set', sets[0]
+    log.log "CardSetsRoute aftermodel end"
 
 App.CardSetsNewRoute = Em.Route.extend
 
