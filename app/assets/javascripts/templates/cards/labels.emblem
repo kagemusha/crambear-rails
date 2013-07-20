@@ -1,0 +1,2 @@
+each cardLabels
+  button{bindAttr class=":card-label-button isLabelled"}{action toggleLabel id} #{name}
