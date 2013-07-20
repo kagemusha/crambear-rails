@@ -17,6 +17,8 @@ App.LabelController = Em.ObjectController.extend
     @transaction.add(model)
 
   save: ->
+    model = @get('model')
+    log.log "LabelController:save: #{model.get('name')}"
     name = @.get("content.name")
     if Em.isEmpty(name)
       return
@@ -26,6 +28,7 @@ App.LabelController = Em.ObjectController.extend
     if sameNameLabels.length > 1
       alert("The label '#{name}' already exists!")
       return
+    debugger
     @transaction.commit();
     @set 'controllers.cardSetLabels.saveMsg', "Saved '#{name}'"
     @transaction = undefined;

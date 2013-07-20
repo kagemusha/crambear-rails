@@ -12,6 +12,7 @@ App.CardSetLabelsController = Em.ArrayController.extend App.Mixins.EditState,
   edit: ->
     @set 'state', "editing"
   saveAdd: ->
+    log.log "Labels saveAdd"
     @set 'state', "viewing"
   stopEditing: -> Em.K()
   cancel: (controller) ->

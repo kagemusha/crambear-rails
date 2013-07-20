@@ -40,11 +40,9 @@ App.CardSetsRoute = Em.Route.extend
 
   afterModel: (cardSets, transition) ->
     log.log "CardSetsRoute aftermodel: trans to card set"
-    cardSets.then (sets) ->
-      log.log "cardSets.then"
-      if (sets.length > 0)
-        @transitionTo 'card_set', sets[0]
-    log.log "CardSetsRoute aftermodel end"
+    if (cardSets.length > 0)
+      @transitionTo 'card_set', cardSets[0]
+
 
 App.CardSetsNewRoute = Em.Route.extend
 

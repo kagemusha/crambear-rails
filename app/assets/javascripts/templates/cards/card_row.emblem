@@ -1,20 +1,24 @@
-tr
+li.card
+  .labels
+    template "cards/labels"
   if isEditing
-    td
+    .front
       Em.TextArea valueBinding="front" rows=4
-    td
+    .back
       Em.TextArea valueBinding="back" rows=4
-    td.actions
+    .actions
       button.btn.btn-mini.btn-primary{action save content} Save
       button.btn.btn-mini{action cancelEditMode content} Cancel
   else
-    td=content.front
-    td=content.back
-    td.actions
-      .button_div
-        button.btn.btn-mini.btn-warning{action enterEditMode content} Edit
-        button.btn.btn-mini.btn-warning{action delete content} Delete
-        br
-        App.CardLabelsView contentBinding="labels"
-        /each label in labels
-        /  = label.name
+    .front
+      content.front
+    .back
+      content.back
+    .actions
+      button.btn.btn-mini.btn-warning{action enterEditMode content} Edit
+      button.btn.btn-mini.btn-warning{action delete content} Delete
+  /attempt2
+  /App.CardLabelsView contentBinding="labels"
+  /each label in labels
+  /attempt1
+  /  = label.name

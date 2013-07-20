@@ -2,21 +2,122 @@
 @import bootstrap
 $card_green: #7cfc00
 
+//from madmadapps
+$heading_bg: #ECF1FA //#eceff6
+$studyEndBg: #9FF8F9
+$greenBg: #7cfc00
+
+$header_bg: #C1DBDA
+$mmapps_color: black
+$mmapps_sub_color: white
+$tech_color:  #33DDFF
+$services_color: yellow
+$proj_color:  #7cfc00
+
+$width: 720px
+$width2:  674px
+$left_offset: 80px
+$taBoxSh: 6px 6px 6px #777
+$maxWidth: 700px
+$horiz_padding: 24px
+
+@mixin taBoxSh
+  box-shadow: $taBoxSh
+  -webkit-box-shadow: $taBoxSh
+  -moz-box-shadow: $taBoxSh
+
+@mixin font_sizes
+  text-shadow: 2px 2px 2px #bbbbbb
+  font-size: 14px
+  .big
+    font-size: 16px
+  .small
+    font-size: 13px
+  .tiny
+    font-size: 8px
+
+
+@mixin msg_font
+  font-size: 14px
+  font-weight: bold
+  color: red
+  min-height: 20px
+
+
+$proj_height: 390px
+
+
+@mixin borderRadius($radius)
+  border-radius: $radius
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+
+@mixin box-shadow($hOffset, $vOffset, $shadow, $color)
+  box-shadow: $hOffset $vOffset $shadow $color
+  -webkit-box-shadow: $hOffset $vOffset $shadow $color
+  -moz-box-shadow: $hOffset $vOffset $shadow $color
+
+@mixin button($bg, $col, $focus_bg, $focus_col: inherited, $height: 22px, $radius: 0, $min_width: 0)
+  display: inline-block
+  min-width: $min_width
+  @include borderRadius($radius)
+  background: $bg
+  color: $col
+  font-weight: bold
+  font-size: 16px
+  height: $height
+  text-align: center
+  padding: 6px 8px
+  &:hover, &:focus
+    background-color: $focus_bg
+    color: $focus_col
+
+//end from madmadapps
+
+a.menu_button
+  font-family: Arial
+  color: #ffffff
+  text-align: center
+  margin-bottom: 10px
+  height: 22px
+  font-size: 22px
+  padding-top: 20px
+  text-decoration: none
+  -webkit-border-radius: 16px
+  -moz-border-radius: 16px
+  border-radius: 16px
+  -webkit-box-shadow: 0px 1px 3px #666666
+  -moz-box-shadow: 0px 1px 3px #666666
+  box-shadow: 0px 1px 3px #666666
+  text-shadow: 1px 1px 3px #666666
+  border: solid #25aac2 0px
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#f53939), to(#e82c2c))
+  background: -moz-linear-gradient(top, #f53939, #e82c2c)
+
+a.button:hover
+  background: #e62097
+  
+ul
+  list-style-type: none
+
 .btn_bar
   margin: 10px 0
 
-.card
-  padding: 12px 6px 6px 6px
-  background: $card_green
-  border-radius: 16px
-  font-size: 1.5em
-  //font-weight: bold
-  height: 200px
-  width: 250px
-  min-height: 120px
-  margin: 10px 0  10px 20px
-  text-align: center
+//.card
+//  padding: 12px 6px 6px 6px
+//  background: $card_green
+//  border-radius: 16px
+//  font-size: 1.5em
+//  //font-weight: bold
+//  height: 200px
+//  width: 250px
+//  min-height: 120px
+//  margin: 10px 0  10px 20px
+//  text-align: center
 
+tr.labels_row
+  border: none
+  background: inherit
 
 
 .inline
@@ -54,7 +155,7 @@ table
     margin-bottom: 0 !important
     padding: 1px 4px !important
 
-  tr
+  > tr
     height: 40px
 
     td
@@ -65,33 +166,31 @@ table
         display: inline-block
         margin: 0 !important
 
-table.cards
-  th
-    &.is-done
-      width: 14px
-    &.estimate
-      width: 100px
-    &.actions
-      width: 140px
-
-
-  tr
-    td
-      input[type=text]
-        width: 360px
-      input[type=number]
-        width: 80px
-
-  .actions
-    width: 100px
-
-    .button_div
+ul.cards
+  background: #d3d3d3
+  margin:  0
+  li.card
+    float: left
+    margin-top:  4px
+    background: #20b2aa
+    width: 100%
+    .labels
+      width: 100%
+      text-align: left
+    .front
+      width: 38%
+      float: left
+    .back
+      width: 38%
+      float: left
+    .actions
+      float: left
+      width: 18%
       display: none
 
-  tr:hover, tr.is-editing
+  li.card:hover, li.card:hover.is-editing
     .actions
-      .button_div
-        display: inline
+      display: inline
 
 .navbar.navbar-fixed-top
   margin-bottom: 4px
@@ -100,9 +199,10 @@ table.cards
   min-height: 100px
   padding: 9px 0
   background:  white
-  border: 3px solid
-  border-color: #006400
-  border-radius: 14px
+  border: none
+  //border: 3px solid
+  //border-color: #006400
+  //border-radius: 14px
   position:fixed
     left: 20px
     top: 60px
@@ -116,13 +216,15 @@ table.cards
   margin-right: 10px
 
 #labels
-  float: left
+  //float: left
+  width:  100%
+  height:  60px
 
-#label_panel
+#label-panel
   border: 1px solid #DDD
   padding: 4px
   background: #e0ffff
-  float: left
+  width:  100%
 
 ul#card_sets
   li.no_cards
@@ -134,7 +236,6 @@ ul#set_labels, ul.card-labels
   display: inline
   li
     display: inline
-    list-style-type: none
     margin-right: 6px
     padding: 1px 2px
     font-weight: bold
@@ -162,3 +263,8 @@ ul#set_labels, ul.card-labels
 ul.card-labels
   li
     display: inline
+
+.is-labelled
+  background: blue
+  color:  white
+  border-radius: 8px

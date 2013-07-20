@@ -3,7 +3,7 @@
 ul#card_sets.nav.nav-pills.nav-stacked
   each card_set in controller
     li
-      linkTo card_set card_set
+      linkTo card_set card_set class="menu_button"
         = card_set.name
   else
     li.no_cards.text-info

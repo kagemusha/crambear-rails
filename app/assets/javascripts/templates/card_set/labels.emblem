@@ -1,8 +1,8 @@
 
-#label_panel
+#label-panel{bindAttr class="isEditing"}
   if isEditing
     .buttons
-      button{action cancel controller} Cancel
+      button{action cancel controller} Close
       | &nbsp;&nbsp;
       = saveMsg
   else

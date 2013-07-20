@@ -1,10 +1,10 @@
-table.table.table-striped.table-hover.cards
-  thead
-    tr
-      th.front Front
-      th.back Back
-      th.actions
-  tbody
-    each controller itemController="card"
-      template "cards/card_row"
+ul.cards
+  li
+    .front
+      | Front
+    .back
+      | Back
+
+  each controller itemController="card"
+    template "cards/card_row"
 

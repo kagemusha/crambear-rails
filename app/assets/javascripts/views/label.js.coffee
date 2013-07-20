@@ -10,9 +10,9 @@ App.LabelView = Em.View.extend
     if e.keyCode == 13
       @get('controller').update()
       @set 'controller.isEditingName', false
-#  didInsertElement: ->
-#    log.log "CardSetNameView: didInsertElem"
-#    this.$('input:first').focus()
+  didInsertElement: ->
+    log.log "LabelView: didInsertElem"
+    #this.$('input:first').focus()
   giveFocusToInput: ((view, key) ->
     log.log "focus"
     log.log Ember.inspect @

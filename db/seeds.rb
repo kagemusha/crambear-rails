@@ -11,6 +11,7 @@ EMBER_CARDS = [
     ["How do you make a controller attribute depend on other things", "With the property method e.g. attribute: (someFunction).property('iDependOnThisProp', 'andThisProp')"],
     ["What is Ember.K?", "An empty function: Ember.K = function() { return this; }; "],
     ["What is Ember.$?", "An alias for jQuery: Ember.$ = jQuery;"],
+    ["How do you pass content to a view?", "Generally in a template. For example\n\nApp.MyView contentBinding='items'\n\nwhere items is defined on your controller"],
 #["",""],
 ]
 
@@ -34,8 +35,13 @@ def create_set(name, cards, labels)
     set.labels << Label.new(name: label)
   end
   set.save!
-  set.cards.first.label_ids = [set.labels.first.id]
-  set.save!
+  label = set.labels.where(name: "important").first
+  p "set: #{set.name}"
+  set.cards.each do |card|
+    p "card: #{card.id} card_set_id: #{card.card_set_id} label: #{label.id}"
+    card.label_ids = [label.id]
+    card.save!
+  end
   set
 end
 

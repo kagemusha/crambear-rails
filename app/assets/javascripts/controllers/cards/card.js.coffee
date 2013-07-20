@@ -1,7 +1,23 @@
 App.CardController = Em.ObjectController.extend
   needs: ['cardSetLabels']
   isEditing: false
-  labels: Em.computed.alias("controllers.cardSetLabels.model")
+  toggleLabel: (val) ->
+    log.log "toggleLabel: #{val}"
+  #cardLbls: (-> Em.A(@get('labelIds'))).property('labelIds.@each')
+  hasLabel: (id)->
+    cardLbls = @get("labelIds")
+    !!(cardLbls and cardLbls.indexOf(1*id) > -1)
+  setLabels: (->
+    log.log "setLabels updated"
+    @get("controllers.cardSetLabels")
+  ).property("controllers.cardSetLabels.@each","controllers.cardSetLabels.@each.name")
+  #this should throw error if no .@each (or just succeed)
+  cardLabels: (->
+    #setLabels = @get("controllers.cardSetLabels")
+    @get('setLabels').map (setLbl) =>
+      id = setLbl.get("id")
+      {name: setLbl.get('name'), id: id, isLabelled: @hasLabel(id)}
+  ).property("controllers.cardSetLabels.@each", "labelIds.@each")
   enterEditMode: ->
     log.log "CardController:enterEditMode"
     @set "isEditing", true
