@@ -1,48 +1,55 @@
 App.CardSetsStudyController = Ember.ObjectController.extend
-  showingFront: true
+  isShowingFront: true
   correctCount: 0
   finished: false
   order: []
   cards: null
+  currentCard: null
+
   total: (->
-    #cards =
     if @get("cards") then  @get("cards.length") else 0
   ).property("cards")
-  init: -> log.log "CardSetsStudyController.init!! This gets called AUTOMATICALLY"
+
   start: (cards) ->
     @set "cards", cards
     @restart()
+
   restart: ->
     @set "finished", false
     @set "correctCount", 0
     @orderCards()
     @next()
+
   orderCards: ->
     log.log "orderC"
     @order = [0..@get("total")-1]
     log.log "orderLen: #{@order.length}"
-  currentCard: null
+
   front: (->
-    @get('currentCard').get("front")
+    @get('currentCard.front')
   ).property('currentCard')
+
   back: (->
-    @get('currentCard').get("back")
+    @get('currentCard.back')
   ).property('currentCard')
+
   flip: ->
     log.log "action flipped"
-    @set "showingFront", false
+    @set "isShowingFront", false
+
   correct: ->
     @set "correctCount", @get("correctCount")+1
     log.log "action correct"
     @next()
+
   wrong: ->
     log.log "action wrong"
     @next()
+
   next: ->
-    @set "showingFront", true
+    @set "isShowingFront", true
     if @order.length==0
       @set "finished", true
-      #@render 'sets/set_actions', into: "set", outlet: "setActions"
     else
       cardId = @order.shift()
       @set "currentCard", @get("cards").objectAt(cardId)

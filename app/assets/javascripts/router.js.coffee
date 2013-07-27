@@ -73,11 +73,11 @@ App.CardSetRoute = Em.Route.extend
     @controllerFor('cardSetLabels').set('content', model.get('labels'))
 
 App.CardSetsStudyRoute = Em.Route.extend
-  model: (params) ->  App.CardSet.find(params?.set_id)
+  model: (params) ->  App.CardSet.find(params?.card_set_id)
+
   setupController: (controller, model) ->
-    log.log "StudyRoute.setupController. Set: #{model.get("name")}"
-    log.log "Card count #{model.get("cards")?.get("length")}"
     controller.set 'content', model
+    controller.start(model.get("cards"))
 
 App.LoginRoute = Em.Route.extend
   model: (params) -> Em.Object.create()
