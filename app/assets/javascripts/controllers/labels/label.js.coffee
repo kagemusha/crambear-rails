@@ -10,11 +10,6 @@ App.LabelController = Em.ObjectController.extend
 
       item.deleteRecord()
       @transaction.commit();
-  startEditing: ->
-    model = @get('model')
-    log.log "LabelController:startEditing: #{model.get('name')}"
-    @transaction = model.get('store').transaction()
-    @transaction.add(model)
 
   save: ->
     model = @get('model')
@@ -28,24 +23,10 @@ App.LabelController = Em.ObjectController.extend
     if sameNameLabels.length > 1
       alert("The label '#{name}' already exists!")
       return
-    debugger
+    @transaction = model.get('store').transaction()
+    @transaction.add(model)
     @transaction.commit();
     @set 'controllers.cardSetLabels.saveMsg', "Saved '#{name}'"
-    @transaction = undefined;
-    @startEditing()
+    @transaction = undefined
 
 
-  stopEditing: ->
-    #rollback the local transaction if it hasn't already been cleared
-    if @transaction
-      @transaction.rollback()
-      @transaction = null
-  parentStateChanged: (->
-    state = @get('controllers.cardSetLabels.state')
-    log.log("parenStat: " + state)
-    if (state=='editing')
-      @startEditing()
-    else if (state=='viewing')
-      log.log("vieewww")
-      @stopEditing()
-  ).observes('controllers.cardSetLabels.state')
