@@ -1,10 +1,12 @@
-ul.cards
-  li
+ul#set-cards
+  li.header
     .front
-      | Front
+      button{action addCards}  Add Cards
+      | &nbsp;&nbsp;Front
     .back
       | Back
+      #cards-title Cards
 
-  each controller itemController="card"
+  each controller
     template "cards/card_row"
 

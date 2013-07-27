@@ -1,20 +1,20 @@
-.offset1
-  .row
-    if finished
-      .btn_bar
-        button.btn.btn-primary{action restart} Restart
-      .study_results
-        | You got #{correctCount} out of #{total} of right
+#study-btn-bar
+  if finished
+    button{action restart} Restart
+  else
+    if isShowingFront
+      #study-click-msg Click card for answer
+    else
+      #study-buttons
+        button{action correct} id="correctBtn" Correct
+        button{action wrong}  Wrong
+.study-panel
+  if finished
+    #study-results
+      | You got #{correctCount} out of #{total} of right
 
   unless finished
-    .row
-      #cardFront.card.span9
-        = front
-  unless showingFront
-    .row
-      #cardBack.card.span9
-        = back
-    unless finished
-      .btn_bar.offset1
-        #correctBtn.button.btn.btn-success{action correct} Correct
-        button.btn.btn-danger{action wrong}  Wrong
+    #cardBack{bindAttr class=":card isShowingFront"}
+      = back
+    #cardFront.card
+      = front

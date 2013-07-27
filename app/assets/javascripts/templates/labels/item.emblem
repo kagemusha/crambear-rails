@@ -1,8 +1,8 @@
 li.set_label{bindAttr class="isEditing"}
   if isEditing
-    button.btn.btn-danger.btn-mini{action delete} X
+    button.mini{action delete} X
     | &nbsp;
     Em.TextField valueBinding="name" class="name"
-    button.btn.btn-danger.btn-mini{action save} Save
+    button.mini{action save} Save
   else
     = name

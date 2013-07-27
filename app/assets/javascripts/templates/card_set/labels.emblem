@@ -9,12 +9,11 @@
     if isAdding
       render "labels/new"
     .lblHeader
-      strong Labels
       if isViewing
         .lblButtons
-          button.btn.btn-mini.btn-primary{action add} Add
+          button.mini{action add} Add
           | &nbsp;
-          button.btn.btn-mini.btn-primary{action edit} Edit
+          button.mini{action edit} Edit
 
   #labels
     ul#set_labels

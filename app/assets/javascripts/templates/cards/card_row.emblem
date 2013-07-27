@@ -7,16 +7,16 @@ li.card
     .back
       Em.TextArea valueBinding="back" rows=4
     .actions
-      button.btn.btn-mini.btn-primary{action save content} Save
-      button.btn.btn-mini{action cancelEditMode content} Cancel
+      button.mini{action save content} Save
+      button.mini{action cancelEditMode content} Cancel
   else
     .front
       content.front
     .back
       content.back
     .actions
-      button.btn.btn-mini.btn-warning{action enterEditMode content} Edit
-      button.btn.btn-mini.btn-warning{action delete content} Delete
+      button.mini{action enterEditMode content} Edit
+      button.mini{action delete content} Delete
   /attempt2
   /App.CardLabelsView contentBinding="labels"
   /each label in labels

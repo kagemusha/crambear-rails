@@ -1,5 +1,6 @@
 App.CardSetNameView = Em.View.extend
   templateName: 'card_sets/set_name'
+  tagName: 'span'
   click: (e)->
     return if e.target.tagName == "INPUT"
     log.log "CardSetNameViewClick"

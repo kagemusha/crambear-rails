@@ -1,6 +1,4 @@
 render navbar
-#main.container-fluid
-  .row-fluid
-    render welcome_msg
-  .row-fluid
-    outlet
+#main
+  render welcome_msg
+  outlet

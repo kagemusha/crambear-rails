@@ -1,9 +1,9 @@
-.actions.sets
- linkTo card_sets.new id="new_set_btn" class="btn btn-small btn-primary" |  New Set
 ul#card_sets.nav.nav-pills.nav-stacked
+  li
+    linkTo card_sets.new id="new-set-btn" class="card-set-button" |  New Set
   each card_set in controller
     li
-      linkTo card_set card_set class="menu_button"
+      linkTo card_set card_set class="card-set-button"
         = card_set.name
   else
     li.no_cards.text-info

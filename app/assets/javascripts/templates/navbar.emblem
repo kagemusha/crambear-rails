@@ -2,7 +2,7 @@
   .navbar-inner
     .container-fluid
       .brand.strong
-        linkTo home | Crambear
+        linkTo index | Crambear
       ul.nav
         li
           linkTo help | Help
