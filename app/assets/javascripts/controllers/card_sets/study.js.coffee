@@ -1,22 +1,40 @@
 App.CardSetsStudyController = Ember.ObjectController.extend
+  needs: ['cardSetLabels']
   isShowingFront: true
   correctCount: 0
   finished: false
   order: []
-  cards: null
+  cards: Em.computed.alias("content.cards")
   currentCard: null
-
   total: (->
     if @get("cards") then  @get("cards.length") else 0
   ).property("cards")
 
-  start: (cards) ->
-    @set "cards", cards
-    @restart()
+  #filters
+  cardSetLabels: Em.computed.alias("content.labels")
+  selectedFilterIds: Em.A()
+  filters: (->
+    log.log "updating filter ids"
+    @get('labels').map (label) =>
+      labelId = 1*label.get("id") #force type to number
+      selected = @get('selectedFilterIds').contains(labelId)
+      {name: label.get('name'), id: labelId, isSelected: selected}
+  ).property("selectedFilterIds.@each")
+  toggleFilter: (labelId) ->
+    log.log "toggleFilter", @get("selectedFilterIds")
+    labelId *= 1 #force type => number
+    lbls = @get("selectedFilterIds")
+    if lbls.contains(labelId)
+      lbls.removeObject(labelId)
+    else
+      lbls.pushObject(labelId)
+    log.log @get("selectedFilterIds")
 
   restart: ->
+    #debugger
     @set "finished", false
     @set "correctCount", 0
+    @initLabels
     @orderCards()
     @next()
 
@@ -24,6 +42,8 @@ App.CardSetsStudyController = Ember.ObjectController.extend
     log.log "orderC"
     @order = [0..@get("total")-1]
     log.log "orderLen: #{@order.length}"
+
+  initLabels: -> Em.K()
 
   front: (->
     @get('currentCard.front')

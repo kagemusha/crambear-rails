@@ -129,22 +129,33 @@ ul
   text-align: right !important
   &.sets
     text-align: left !important
-//.trailer
-//  +trailer
 
+
+#study-filters-bar
+  border-top: 1px black solid
+  margin-top: 12px
+  background: yellow
+  width:  100%
+  padding:  4px 30px
+
+.study-filter-button
+  background: gray
+  &.is-selected
+    background: $card_green
+
+$studyBtnBarHeight: 40px
 #study-btn-bar
   text-align: center
   border-top: 3px black solid
   border-bottom: 3px black solid
   padding:  8px 30px
-  height: 34px
-  margin-top: 12px
+  height: $studyBtnBarHeight
   margin-bottom: 14px
   width:  100%
   button
-    font-size: 25px
-    width: 140px
-    height: 34px
+    font-size: 32px
+    width: 160px
+    height: $studyBtnBarHeight
     border: 3px black solid
     background: beige
     color: red

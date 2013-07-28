@@ -77,7 +77,7 @@ App.CardSetsStudyRoute = Em.Route.extend
 
   setupController: (controller, model) ->
     controller.set 'content', model
-    controller.start(model.get("cards"))
+    controller.restart()
 
 App.LoginRoute = Em.Route.extend
   model: (params) -> Em.Object.create()

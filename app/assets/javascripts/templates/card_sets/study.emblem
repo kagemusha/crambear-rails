@@ -1,3 +1,7 @@
+#study-filters-bar
+  | Filters:
+  each filters
+    button{bindAttr class=":study-filter-button isSelected"}{action toggleFilter id} #{name}
 #study-btn-bar
   if finished
     button{action restart} Restart
