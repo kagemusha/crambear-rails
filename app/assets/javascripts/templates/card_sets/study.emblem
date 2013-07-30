@@ -1,21 +1,26 @@
+#connector1
 #study-filters-bar
-  | Filters:
+  | Filters:&nbsp;&nbsp;
   each filters
     button{bindAttr class=":study-filter-button isSelected"}{action toggleFilter id} #{name}
 #study-btn-bar
+  #study-set-name
+    cardSetName
   if finished
     button{action restart} Restart
   else
-    if isShowingFront
-      #study-click-msg Click card for answer
-    else
-      #study-buttons
+    #study-buttons
+      if isShowingFront
+        button{action flip} id="flipBtn" Show Answer
+      else
         button{action correct} id="correctBtn" Correct
         button{action wrong}  Wrong
+  #study-status-msg
+    statusMsg
 .study-panel
   if finished
     #study-results
-      | You got #{correctCount} out of #{total} of right
+      | You got #{correctCount} out of #{filteredTotal} of right
 
   unless finished
     #cardBack{bindAttr class=":card isShowingFront"}
