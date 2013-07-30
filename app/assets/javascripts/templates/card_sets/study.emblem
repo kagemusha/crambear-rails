@@ -23,7 +23,7 @@
       | You got #{correctCount} out of #{filteredTotal} of right
 
   unless finished
-    #cardBack{bindAttr class=":card isShowingFront"}
+    #cardBack{bindAttr class=":card isShowingFront isShowingBack"}
       = back
     #cardFront.card
       = front

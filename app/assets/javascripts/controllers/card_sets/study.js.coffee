@@ -3,6 +3,7 @@ App.CardSetsStudyController = Ember.ObjectController.extend
   cards: Em.computed.alias("content.cards")
   cardSetName: Em.computed.alias("content.name")
   isShowingFront: true
+  isShowingBack: Em.computed.not("isShowingFront")
   hideArchived: true
   correctCount: 0
   cardsLeft: 0

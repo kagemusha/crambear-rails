@@ -17,8 +17,6 @@ $left_offset: 80px
 $maxWidth: 700px
 $horiz_padding: 24px
 
-
-
 @mixin borderRadius($radius)
   border-radius: $radius
   -webkit-border-radius: $radius
@@ -190,27 +188,69 @@ $studyBtnBarHeight: 40px
   width: 50%
   margin: 0 auto
 
-#study-results
-  font-size: 22px
-  padding: 10px
-.study-panel
-  .card
-    padding: 30px
-    font-size: 22px
-    font-weight: bold
-    width: 100%
-    min-height: 200px
-    background: #7cfc00
-    border-radius: 12px
-    margin-bottom: 10px
 
-#cardBack.is-showing-front
+@mixin expandedCard
+  padding: 30px
+  font-size: 22px
+  font-weight: bold
+  min-height: 200px
+  background: #7cfc00
+  border-radius: 12px
+  margin-bottom: 10px
+
+@mixin collapsedCard
   background: black
   color:  black
   height: 20px
   min-height: 20px
   padding:  0 30px
   font-size: 0
+
+#study-results
+  font-size: 22px
+  padding: 10px
+.study-panel
+  position: relative
+  .card
+    width: 100%
+    @include expandedCard
+
+#cardBack.is-showing-front
+  @include collapsedCard
+
+.is-showing-back
+  -moz-animation: expand-card 0.3s 1
+  -webkit-animation: expand-card 0.3s 1
+  animation: expand-card 0.3s 1
+
+.is-showing-front
+  -moz-animation: contract-card 0.3s 1
+  -webkit-animation: contract-card 0.3s 1
+  animation: contract-card 0.3s 1
+
+@-webkit-keyframes expand-card
+  0%
+    @include collapsedCard
+  100%
+    @include expandedCard
+@-webkit-keyframes contract-card
+  0%
+    padding: 30px
+    font-size: 22px
+    width: 100%
+    min-height: 200px
+    background: #7cfc00
+    border-radius: 12px
+    margin-bottom: 10px
+    color: #7cfc00
+
+  100%
+    background: black
+    color:  black
+    height: 20px
+    min-height: 20px
+    padding:  0 30px
+    font-size: 0
 
 #study-click-msg
   font-weight: bold
@@ -260,13 +300,13 @@ ul#set-cards
   padding: 9px 0
   background:  white
   border: none
-  //border: 3px solid
-  //border-color: #006400
-  //border-radius: 14px
-  //position: fixed
-  //left: 20px
-  //top: 60px
-  //width: 250px
+//border: 3px solid
+//border-color: #006400
+//border-radius: 14px
+//position: fixed
+//left: 20px
+//top: 60px
+//width: 250px
 
 
 .row-fluid > .span-fixed-sidebar
@@ -278,7 +318,7 @@ ul#set-cards
 #labels
   //float: left
   width:  100%
-  //height:  60px
+//height:  60px
 
 #label-panel
   //border-top: 1px solid #DDD
@@ -360,4 +400,4 @@ button
   width: 20px
   position: absolute
   top:  0
-  left: 72%
+  left:  72%
