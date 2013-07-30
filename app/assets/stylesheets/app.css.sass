@@ -45,6 +45,8 @@ $horiz_padding: 24px
     color: $focus_col
 
 //end from madmadapps
+
+
 a#new-set-btn
   background: red
   color: white
@@ -113,13 +115,14 @@ ul
 .inline
   display: inline
 
-#user_info.container-fluid.offset7
+#user_info
   padding-right: 4px
+  margin-left: 40px
   margin-bottom: 6px
-
+  margin-top: 0
 
 .greeting
-  text-align: right
+  //text-align: right
   .hello
     font-weight: bold
     color: blue
@@ -134,17 +137,19 @@ ul
 #study-filters-bar
   border-top: 1px black solid
   margin-top: 12px
-  background: yellow
   width:  100%
   padding:  4px 30px
 
 .study-filter-button
-  background: gray
+  margin-right: 6px
+  min-width: 70px
+  background: #d3d3d3
   &.is-selected
     background: $card_green
 
 $studyBtnBarHeight: 40px
 #study-btn-bar
+  position: relative
   text-align: center
   border-top: 3px black solid
   border-bottom: 3px black solid
@@ -154,7 +159,7 @@ $studyBtnBarHeight: 40px
   width:  100%
   button
     font-size: 32px
-    width: 160px
+    min-width: 160px
     height: $studyBtnBarHeight
     border: 3px black solid
     background: beige
@@ -163,6 +168,24 @@ $studyBtnBarHeight: 40px
     box-shadow: "10px 10px 5px #888888"
   #correctBtn
     color: #006400
+  #study-set-name
+    position: absolute
+    font-size: 16px
+    color:  purple
+    font-weight: bold
+    width: 240px
+    text-align: left
+    left:  4px
+    top:  0
+  #study-status-msg
+    position: absolute
+    font-size: 16px
+    color:  purple
+    font-weight: bold
+    width: 240px
+    text-align: right
+    right:  4px
+    bottom:  0
 #study-buttons
   width: 50%
   margin: 0 auto
@@ -329,3 +352,12 @@ button
   border:  none
   border-radius: 6px
   box-shadow: none
+
+
+#connector1
+  height: 100px
+  background: black
+  width: 20px
+  position: absolute
+  top:  0
+  left: 72%
