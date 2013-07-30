@@ -1,11 +1,20 @@
+App.Router.reopen
+  didTransition: (infos)->
+    @_super(infos)
+    appController = this.container.lookup('controller:application')
+    @showSidebar appController.get('currentPath')
+
+  hideSideBarRoutes: ['card_sets.study']
+  showSidebar: (currentPath) ->
+    cardSetController = this.container.lookup('controller:cardSets')
+    cardSetController.set "showSidebar", !@get('hideSideBarRoutes').contains(currentPath)
+
 ## At some point want to move routes to own file
 ## They are grouped together here for ease of exposition
 
 #Notes
 # for nested @resource @route can do #linkTo resource.route
 # for nested @resource @resource, seems can't
-
-
 App.Router.map ->
   @route "home"
   @route "help"
