@@ -1,5 +1,5 @@
 if user
-  #user_info.container-fluid.offset7
+  #user_info
     .greeting
       span.hello Hi #{user.name}
       |  (#{user.email})
