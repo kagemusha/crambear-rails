@@ -1,0 +1,10 @@
+if user
+  #gravatar
+    if gravatarHash
+      img{bindAttr src="gravatarHash"}
+  #greeting
+    #hello
+      | #{greeting}
+
+
+
