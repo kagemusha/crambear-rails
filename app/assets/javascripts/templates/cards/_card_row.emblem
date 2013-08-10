@@ -1,6 +1,6 @@
 li.card
   .labels
-    template "cards/labels"
+    partial "cards/labels"
   if isEditing
     .front
       Em.TextArea valueBinding="front" rows=4
@@ -14,9 +14,6 @@ li.card
       content.front
     .back
       content.back
-    .actions
-      button.mini{action enterEditMode content} Edit
-      button.mini{action delete content} Delete
   /attempt2
   /App.CardLabelsView contentBinding="labels"
   /each label in labels
