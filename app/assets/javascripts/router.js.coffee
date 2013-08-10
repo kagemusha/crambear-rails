@@ -34,9 +34,16 @@ App.IndexRoute = Em.Route.extend
     else
       @transitionTo 'home'
 
+App.HomeRoute = Em.Route.extend
+  beforeModel: ->
+    if App.authenticated
+      @transitionTo 'card_sets'
 
 App.CardSetsRoute = Em.Route.extend
-  beforeModel: -> log.log "CardSetsRoute: beforeModel"
+  beforeModel: ->
+    log.log "csroute beforemodel"
+    if not App.authenticated
+      @transitionTo 'home'
 
   model: ->
     #is the authentication check here cheesy, and seems for state managers
@@ -49,7 +56,9 @@ App.CardSetsRoute = Em.Route.extend
 
   afterModel: (cardSets, transition) ->
     log.log "CardSetsRoute aftermodel: trans to card set"
-    if (cardSets.length > 0)
+    if not App.authenticated
+      @transitionTo 'home'
+    else if (cardSets.length > 0)
       @transitionTo 'card_set', cardSets[0]
 
 
@@ -87,6 +96,7 @@ App.CardSetsStudyRoute = Em.Route.extend
   setupController: (controller, model) ->
     controller.set 'content', model
     controller.restart()
+
 
 App.LoginRoute = Em.Route.extend
   model: (params) -> Em.Object.create()
