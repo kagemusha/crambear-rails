@@ -14,6 +14,11 @@ EMBER_CARDS = [
     ["How do you pass content to a view?", "Generally in a template. For example\n\nApp.MyView contentBinding='items'\n\nwhere items is defined on your controller"],
 #["",""],
 ]
+CSS = [
+    ["How set a CSS width combining % and px?","calc() e.g. \n\nwidth: calc(100% - 60px)\n\nsee https://developer.mozilla.org/en-US/docs/Web/CSS/calc" ],
+
+]
+
 
 RUBY_LABELS = ["archived","important"]
 EMBER_LABELS = ["archived","important"]
