@@ -1,4 +1,6 @@
+.github-fork-ribbon-wrapper.left
+  .github-fork-ribbon
+    a href="https://github.com/kagemusha/crambear" Fork me on GitHub
 render navbar
 #main
-  render welcome_msg
   outlet
