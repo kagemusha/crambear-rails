@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 
+//= require vendor/md5
 //= require vendor/handlebars-1.0.0-rc.4
 //= require vendor/ember-1.0.0-rc.6
 //= require vendor/ember-data
