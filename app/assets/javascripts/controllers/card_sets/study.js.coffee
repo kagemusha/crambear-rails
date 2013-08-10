@@ -2,8 +2,10 @@ App.CardSetsStudyController = Ember.ObjectController.extend
   needs: ['cardSetLabels']
   cards: Em.computed.alias("content.cards")
   cardSetName: Em.computed.alias("content.name")
-  isShowingFront: true
-  isShowingBack: Em.computed.not("isShowingFront")
+  pageRendered: true
+  isShowingFront: false
+  isShowingBack: (-> @get("pageRendered") and not @get("isShowingFront")
+  ).property("isShowingFront", "pageRendered")
   hideArchived: true
   correctCount: 0
   cardsLeft: 0
@@ -42,6 +44,7 @@ App.CardSetsStudyController = Ember.ObjectController.extend
     @initLabels
     @orderCards()
     @next()
+    @set("pageRendered", true)
 
   orderCards: ->
     cardPositions = [0..@get("total")-1]
