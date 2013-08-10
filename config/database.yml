@@ -9,16 +9,6 @@ test:
   host: localhost
 
 
-#development:
-#  adapter: postgresql
-#  database: crambear_dev
-#  host: localhost
-#test:
-#  adapter: postgresql
-#  database: crambear_test
-#  host: localhost
-
-
 #dummy to get assets:precompile to work
 #see http://devcenter.heroku.com/articles/rails31_heroku_cedar
 production:
