@@ -1,3 +1,7 @@
-p.text-info
-  i.icon-info-sign
-  | Select a set to the left or create a new one.
+#no-set-selected-msg
+  | Create a
+  linkTo card_sets.new class="new-set-btn card-set-button" |  new set
+  br
+  | or
+  br
+  | select one on the left

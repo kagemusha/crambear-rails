@@ -12,7 +12,7 @@ gem "thin", ">= 1.5.0"
 gem "haml", ">= 3.1.7"
 
 gem 'compass-rails'
-gem "bootstrap-sass", ">= 2.2.2.0"
+#gem "bootstrap-sass", ">= 2.2.2.0"
 
 gem "devise", ">= 2.2.3"
 gem "cancan", ">= 1.6.8"
@@ -23,7 +23,7 @@ gem "figaro", ">= 0.5.3"
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'uglifier', '>= 1.0.3'
-  gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
+  #gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
   gem 'coffee-rails', '~> 3.2.1'
 end
 

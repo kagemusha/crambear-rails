@@ -1,6 +1,13 @@
-ul#card_sets.nav.nav-pills.nav-stacked
-  li
-    linkTo card_sets.new id="new-set-btn" class="card-set-button" |  New Set
+#set-admin
+  p
+    Em.TextField valueBinding="name" placeholder='Search (todo)' id='card-set-search'
+  /input type='text' placeholder='Search' id='card-set-search'
+  p Sort (todo): &nbsp;alpha
+  p
+    linkTo card_sets.new class="btn" id="new-set-btn"  |  New Set
+
+
+ul#card_sets
   each card_set in controller
     li
       linkTo card_set card_set class="card-set-button"

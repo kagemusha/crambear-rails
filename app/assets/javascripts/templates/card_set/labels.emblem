@@ -1,22 +1,25 @@
 
 #label-panel{bindAttr class="isEditing"}
   if isEditing
+    button{action cancel controller} Close
+    br
+    #new-label
+      render "labels/new"
+    hr
+  #labels
+    ul#set-labels
+      if isViewing
+        button.mini{action edit} Labels
+        | &nbsp;&nbsp;
+      each controller
+        partial "labels/item"
+
+  if isEditing
     .buttons
-      button{action cancel controller} Close
       | &nbsp;&nbsp;
       = saveMsg
-  else
-    if isAdding
-      render "labels/new"
-    .lblHeader
-      if isViewing
-        .lblButtons
-          button.mini{action add} Add
-          | &nbsp;
-          button.mini{action edit} Edit
+  /else
+  /  if isAdding
+  /    render "labels/new"
 
-  #labels
-    ul#set_labels
-      each controller
-        template "labels/item"
 

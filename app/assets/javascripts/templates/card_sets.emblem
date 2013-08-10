@@ -1,6 +1,5 @@
-#sets.span2
-  .well.well-small.sidebar-nav-fixed
-    if showSidebar
-      partial "card_sets/set_list"
-.span9
+if showSidebar
+  #sidebar
+    partial "card_sets/set_list"
+#content
   outlet

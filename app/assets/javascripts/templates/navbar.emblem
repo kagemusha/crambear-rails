@@ -1,14 +1,17 @@
-.navbar.navbar-fixed-top
-  .navbar-inner
-    .container-fluid
-      .brand.strong
-        linkTo index | Crambear
-      ul.nav
-        li
-          linkTo help | Help
-      .btn-group.pull-right
-        if authenticated
-            button.btn{action logout} Logout
-        else
-            App.MenuItem href="#/login" label="Login"
-            App.MenuItem href="#/registration" label="Register"
+#navbar-top
+  #nav-links
+  #banner
+    linkTo index | Crambear
+  #blurb
+    | flash cards built on&nbsp;&nbsp;
+    a href="https:github.com/emberjs/ember.js" Ember.js
+
+  #user-management
+    if authenticated
+      partial "welcome_msg"
+      #logout-btn
+        button.btn{action logout} Logout
+    else
+      #auth-btns
+        App.MenuItem href="#/login" label="Login"
+        App.MenuItem href="#/registration" label="Register"

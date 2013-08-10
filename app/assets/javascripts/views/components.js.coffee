@@ -3,8 +3,7 @@ App.MenuItem = Ember.View.extend
   templateName: "comps/menu_item"
   tagName: 'a'
   classNames: ["btn"]
-  attributeBindings: ['href', 'hidden']
-  hidden: "hidden"
+  attributeBindings: ['href']
 
 App.ArrayCheckbox = Em.Checkbox.extend
   choices: []

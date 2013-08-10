@@ -1,12 +1,13 @@
-h2 New Set
+#new-set-page
+  h2 New Set
 
-.form-horizontal
-  .control-group
-    label.control-label for="name" Set Name
-    .controls
-      Em.TextField valueBinding="name" id="name" action="create"
-  .form-actions
-    input.btn{action save} type="submit" value="Create Set"
-    | &nbsp;
-    input.btn{action cancel} type="submit" value="Close"
+  .form-horizontal
+    .control-group
+      label.control-label for="name" Set Name
+      .controls
+        Em.TextField valueBinding="name" id="name" action="create"
+    .form-actions
+      input.btn{action save} type="submit" value="Create Set"
+      | &nbsp;
+      input.btn{action cancel} type="submit" value="Close"
 

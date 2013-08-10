@@ -1,14 +1,13 @@
 @import compass
-@import bootstrap
 $card_green: #7cfc00
-
+$study-yellow: #FFDB58
+$ember-red: #d84a32
 //from madmadapps
-$heading_bg: #dCe1eA //#eceff6
+$heading_bg: #eceff6
 $studyEndBg: #9FF8F9
 $greenBg: #7cfc00
 
 $tech_color:  #33DDFF
-$services_color: yellow
 $proj_color:  #7cfc00
 
 $width: 720px
@@ -43,68 +42,275 @@ $horiz_padding: 24px
     color: $focus_col
 
 //end from madmadapps
+body
+  margin: 0
+
+ul
+  list-style-type: none
+a
+  text-decoration: none
+
+.one-col-page
+  margin-left: 100px
+  margin-top: 20px
+  font-size: 20px
 
 
-a#new-set-btn
-  background: red
+
+
+#navbar-top
+  width: 100%
+  min-width: 600px
+  float: left
+  background: black
+  color:  white
+  margin: 0
+  height:  40px
+  padding:  12px
+
+#banner
+  float: left
+  margin-left: 250px
+  width: 150px
+  //text-align: center
+  a
+    font-size: 32px
+    font-weight: bold
+    color: white
+    text-shadow: purple 0.1em 0.1em 0.2em
+    font-style: italic
+#blurb
+  float: left
+  width: 250px
+  margin-top: 15px
+  a
+    color: $ember-red
+    font-family: 'Pacifico'
+    font-weight: bold
+    font-style: italic
+
+#user-info
+  float: left
+  width: 300px
+  padding-right: 4px
+  margin-left: 40px
+  margin-bottom: 6px
+  margin-top: 0
+#gravatar
+  float: left
+  width: 50px
+#greeting
+  float: left
+  padding-top: 12px
+  width: 120px
+  overflow: hidden
+  #hello
+    font-weight: bold
+    color: white
+#logout-btn
+  padding-top: 10px
+  display: inline-block
+
+#auth-btns
+  float: right
+  width: 190px
+  padding-top: 8px
+  margin-right: 10px
+  .btn
+    margin-right: 16px
+#nav-links
+  float: left
+
+#user-management
+  float: right
+  width:  250px
+  font-size:  20px
   color: white
 
-a.card-set-button
-  font-family: Arial
-  color: #ffffff
-  text-align: center
-  margin-bottom: 10px
-  height: 22px
-  font-size: 22px
-  padding-top: 20px
-  text-decoration: none
-  -webkit-border-radius: 16px
-  -moz-border-radius: 16px
-  border-radius: 16px
-  border: solid #25aac2 0px
-  background: #8b4513
+//card set sidebar
+#set-admin
+  background: $heading_bg
+  color: purple
+  width: 150px
+  border-radius: 8px
+  border: 1px solid black
+  height:  110px
+  margin-top: 92px
+  margin-left: 20px
+  text-align: right
+  padding: 6px
+  p
+    margin: 12px 0
+  #new-set-btn
+    margin: 0
+
+#card-set-search
+  border-radius: 4px
+ul#card_sets
+  background: #00ffff
+  li
+    margin: 10px
+    width: 100%
+    height: 30px
+    float:  right
+    text-align: right
+
+    a.card-set-button
+      font-family: Arial
+      color: purple
+      font-style: italic
+      margin-bottom: 10px
+      height: 22px
+      font-size: 22px
+      padding-top: 20px
+      text-decoration: none
+
+
+#main
+  position: relative
+  margin-top: 20px
+  padding-right: 40px
+  float: left
+
+#sidebar
+  position: absolute
+  left: 20px
+  width: 180px
+  margin-right: 20px
+  height: 100%
+
+#content
+  margin-top: 10px
+  margin-left: 240px
+  margin-right: 40px
+  height: 100%
 
 a.button:hover
   background: #e62097
 
 #card-set-header
   position: relative
-  background: $heading_bg
-  border-radius: 12px
-  padding: 6px
-  width:  100%
-
-
-#card-set-name
-  padding:  14px 10px
-  #study-btn
-    background: red
-    color: white
-    border-radius: 6px
-    font-size:  24px
-    padding:  10px
-    margin-right: 14px
-    position: absolute
-    top: 8px
-    right: 8px
-  #set-name
-    color: purple
-    font-size:  26px
-    font-weight: bold
-    display: inline-block
-    vertical-align: center
-    line-height: 100%
-    height: 40px
+  //border-top: 4px solid black
+  padding-left: 6px
+  width:  calc(100% - 6px)
+#card-set-header-top
+  height: 40px
+  margin-bottom: 6px
+  padding:  2px 0
+  width:  calc(100% - 6px)
   #delete-btn
     display: none
     border-radius: 60%
     background: black
+  &:hover
+    #delete-btn
+      margin-top: 16px
+      margin-left: 4px
+      display: inline
+  #study-btn
+    background: red
+    font-weight: bold
+    color: white
+    border-radius: 8px
+    font-size:  32px
+    padding:  4px 14px
+    position: absolute
+    top: 8px
+    right: 2px
+  #card-set-name
+    position: absolute
+    top:  8px
+    left: 40px
+    color: purple
+    font-family: arial
+    font-size:  36px
+    font-weight: bold
+    font-style: italic
+    display: inline-block
+    vertical-align: center
+    line-height: 100%
+    height: 40px
 
-#card-set-name:hover
-  #delete-btn
-    display: inline
-ul
-  list-style-type: none
+
+#no-set-selected-msg
+  text-align: center
+  font-size: 26px
+  //background: yellow
+  //font-style: italic
+  line-height: 40px
+  font-family: arial
+  margin-left: 200px
+  width: 300px
+
+#cards-list
+  float: left
+  padding:  0
+  margin:  10px 0 0 0
+  height: 100%
+
+ul#set-cards
+  float: left
+  padding: 0
+  margin:  0
+  li
+    float: left
+    margin:  4px 0
+    background: $study-yellow
+    width: 100%
+    padding: 4px 0
+    border-radius: 8px
+    &.header
+      position: relative
+      font-weight: bold
+      border-top: 1px black solid
+      border-bottom: 1px black solid
+      color: black
+      background: white
+      //padding: 6px 4px
+      border-radius: 0
+    .labels
+      width: 100%
+      padding: 0 20px
+      text-align: left
+    .front
+      padding: 0 6px
+      width: 48%
+      float: left
+      border-radius: 8px
+    .back
+      padding: 0 6px
+      width: 48%
+      float: left
+      border-radius: 8px
+      font-weight: bold
+    .actions
+      float: left
+      width: 18%
+      display: none
+
+
+  li.card:hover, li.card:hover.is-editing
+    .actions
+      display: inline
+
+
+input.btn
+  border-radius: 8px
+  text-align: center
+  font-size:  20px
+  border: solid 2px black
+  margin-top: 10px
+  background: #f5f5f5
+
+.btn
+  display: inline-block
+  background: red
+  color:  white
+  border-radius: 6px
+  margin-right: 6px
+  padding: 2px 8px
+  text-align: center
+
 
 .btn_bar
   margin: 10px 0
@@ -113,17 +319,6 @@ ul
 .inline
   display: inline
 
-#user_info
-  padding-right: 4px
-  margin-left: 40px
-  margin-bottom: 6px
-  margin-top: 0
-
-.greeting
-  //text-align: right
-  .hello
-    font-weight: bold
-    color: blue
 
 
 .actions
@@ -132,11 +327,130 @@ ul
     text-align: left !important
 
 
+
+
+#study-click-msg
+  font-weight: bold
+  font-size: 16px
+
+
+//.row-fluid > .span-fixed-sidebar
+//  margin-left: 290px
+
+#correctBtn
+  margin-right: 10px
+
+
+#label-panel
+  margin: 25px 0
+  border-radius: 12px
+  height:  20px
+  float: left
+  padding: px 2px 4px 4px
+  width: calc(100% - 6px)
+  &.is-editing
+    padding: 16px
+    background: $heading_bg
+    height:  auto
+    width: auto
+    position:  relative
+    z-index: 99
+  input[type='text']
+    width: 180px
+    height: 22px
+    font-size: 18px
+    padding: 2px 4px
+    margin: 4px
+
+#new-label
+  margin: 8px 0 8px 30px
+  label
+    font-weight: bold
+  input
+    margin: 4px
+
+#label-buttons
+  display: inline
+  button
+    margin-left: 4px
+
+.lblButtons
+  float: right
+  text-align: right
+  width:  90px
+  display: inline
+  margin: 0
+
+
+
+
+//#labels
+ul#set-labels
+  margin: 0
+  padding: 0 0 0 4px
+ul#set-labels, ul.card-labels
+  float: left
+  display: inline
+  li.title
+    color: black
+  li
+    display: inline
+    margin-right: 6px
+    padding: 1px 2px
+    font-weight: bold
+    color: purple
+  li.is-editing
+    display: block
+
+#add-cards
+  position: absolute
+  top:  0
+  right:  4px
+
+ul.card-labels
+  display: inline
+  li
+    display: inline
+
+.card-label-button
+  margin-right: 2px
+  border: none
+  font-weight: bold
+  background: inherit
+  border-radius: 20%
+  color: #ddcdcd
+  &.is-labelled
+    color: purple
+
+button
+  background: red
+  color:  white
+  border:  none
+  border-radius: 6px
+  box-shadow: none
+
+
+textarea.addCardField
+  border-radius: 10px
+  height: 200px
+  width:  400px
+
+/*  study related */
+
+#study-page
+  min-width:  800px
+  width: 100%
+  margin: 20px 0 0 20px
+  //margin:  0px auto
+
+
+$study-elem-horiz-padding: 4px
+$study-elem-width: 800px
 #study-filters-bar
   border-top: 1px black solid
   margin-top: 12px
-  width:  100%
-  padding:  4px 30px
+  padding:  4px $study-elem-horiz-padding
+  width: 852px
 
 .study-filter-button
   margin-right: 6px
@@ -151,10 +465,10 @@ $studyBtnBarHeight: 40px
   text-align: center
   border-top: 3px black solid
   border-bottom: 3px black solid
-  padding:  8px 30px
+  padding:  10px 30px
   height: $studyBtnBarHeight
   margin-bottom: 14px
-  width:  100%
+  width: $study-elem-width
   button
     font-size: 32px
     min-width: 160px
@@ -168,22 +482,23 @@ $studyBtnBarHeight: 40px
     color: #006400
   #study-set-name
     position: absolute
-    font-size: 16px
+    font-size: 22px
     color:  purple
     font-weight: bold
     width: 240px
+    overflow: hidden
     text-align: left
     left:  4px
-    top:  0
+    bottom:  0
   #study-status-msg
     position: absolute
-    font-size: 16px
+    font-size: 22px
     color:  purple
     font-weight: bold
     width: 240px
     text-align: right
     right:  4px
-    bottom:  0
+    top:  2px
 #study-buttons
   width: 50%
   margin: 0 auto
@@ -193,7 +508,7 @@ $studyBtnBarHeight: 40px
   padding: 30px
   font-size: 22px
   font-weight: bold
-  min-height: 200px
+  min-height: 240px
   background: #7cfc00
   border-radius: 12px
   margin-bottom: 10px
@@ -212,7 +527,7 @@ $studyBtnBarHeight: 40px
 .study-panel
   position: relative
   .card
-    width: 100%
+    width: $study-elem-width
     @include expandedCard
 
 #cardBack.is-showing-front
@@ -233,171 +548,70 @@ $studyBtnBarHeight: 40px
     @include collapsedCard
   100%
     @include expandedCard
+
 @-webkit-keyframes contract-card
   0%
-    padding: 30px
-    font-size: 22px
-    width: 100%
-    min-height: 200px
-    background: #7cfc00
-    border-radius: 12px
-    margin-bottom: 10px
-    color: #7cfc00
-
+    @include expandedCard
+    color: $card_green
   100%
-    background: black
-    color:  black
-    height: 20px
-    min-height: 20px
-    padding:  0 30px
-    font-size: 0
-
-#study-click-msg
-  font-weight: bold
-  font-size: 16px
-
-ul#set-cards
-  background: #d3d3d3
-  margin:  0
-  li
-    float: left
-    margin-top:  4px
-    background: #7cfc00
-    width: 100%
-    padding: 4px 6px
-    border-radius: 8px
-    &.header
-      position: relative
-      font-weight: bold
-      //border-top: 1px black dotted
-      color: white
-      background: black
-      padding: 6px 4px
-      border-radius: 0
-    .labels
-      width: 98%
-      text-align: left
-    .front
-      width: 38%
-      float: left
-    .back
-      width: 38%
-      float: left
-    .actions
-      float: left
-      width: 18%
-      display: none
-
-  li.card:hover, li.card:hover.is-editing
-    .actions
-      display: inline
-
-.navbar.navbar-fixed-top
-  margin-bottom: 4px
-
-.sidebar-nav-fixed.well.well-small
-  min-height: 100px
-  padding: 9px 0
-  background:  white
-  border: none
-//border: 3px solid
-//border-color: #006400
-//border-radius: 14px
-//position: fixed
-//left: 20px
-//top: 60px
-//width: 250px
-
-
-.row-fluid > .span-fixed-sidebar
-  margin-left: 290px
-
-#correctBtn
-  margin-right: 10px
-
-#labels
-  //float: left
-  width:  100%
-//height:  60px
-
-#label-panel
-  //border-top: 1px solid #DDD
-  padding: 4px
-  width:  100%
-  position: relative
-
-ul#card_sets
-  li.no_cards
-    margin: 10px
-
-
-
-ul#set_labels, ul.card-labels
-  display: inline
-  li
-    display: inline
-    margin-right: 6px
-    padding: 1px 2px
-    font-weight: bold
-    color: blue
-  li.is-editing
-    display: block
-
-#cards-title
-  position: absolute
-  top:  0
-  right:  0
-  width: 70px
-  font-size: 16px
-  text-align: center
-  padding: 4px 0
-  height: 20px
-  background:  black
-  color:  white
-
-#new-label
-  display: inline
-  margin-bottom: 8px
-  label
-    font-weight: bold
-  input
-    margin: 4px
-
-#label-buttons
-  display: inline
-  button
-    margin-left: 4px
-
-.lblHeader
-  float: left
-  width:  90px
-
-ul.card-labels
-  li
-    display: inline
-
-.card-label-button
-  margin-right: 2px
-  border: none
-  font-weight: bold
-  background: inherit
-  border-radius: 20%
-  color: #ddcdcd
-  &.is-labelled
-    color: blue
-
-button
-  background: red
-  color:  white
-  border:  none
-  border-radius: 6px
-  box-shadow: none
-
+    @include collapsedCard
 
 #connector1
+  display: none
   height: 100px
   background: black
-  width: 20px
+  width: 10px
   position: absolute
   top:  0
   left:  72%
+
+#study-bear-img
+  position: absolute
+  top:  42px
+  left:  74%
+  z-index: 100
+
+#new-set-page
+  width: 600px
+  text-align: center
+  font-size: 22px
+
+/* form */
+.form-page
+  margin-left: 220px
+
+  form
+    margin-top: 40px
+    padding: 22px
+    border: solid black 1px
+    border-radius: 8px
+    font-size: 18px
+    legend
+      color: purple
+      font-weight: bold
+      font-family: arial
+      font-size: 26px
+      margin-bottom: 20px
+    input
+      &[type="text"], &[type="password"]
+        font-size: 22px
+        width: 280px
+        height: 32px
+        border-radius: 12px
+    .control-group
+      margin-bottom: 30px
+    input.btn, button
+      border-radius: 8px
+      text-align: center
+      font-size:  20px
+      border: solid 2px black
+      margin-top: 10px
+      background: #f5f5f5
+      color: white
+      &.confirm
+        background: purple
+      &.cancel
+        color: purple
+        background: white
+
+/* end form */

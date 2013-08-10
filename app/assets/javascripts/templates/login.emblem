@@ -1,16 +1,13 @@
-form.form-horizontal{action login content on="submit"}
-  legend Login
-  if errorMsg
-    .alert.alert-error=errorMsg
-  .control-group
-    label.control-label for="email" Email
-    .controls
-      Em.TextField valueBinding="email" id="email" action="create"
-  .control-group
-    label.control-label for="password" Password
-    .controls
-      Em.TextField valueBinding="password" type="password" id="password" action="create"
-  .form-actions
-    button.btn.btn-primary type="submit" value="Login" Login
-    input.btn{action cancel} type="submit" value="Cancel"
+#login.form-page
+  form#login
+    legend Login
+    if errorMsg
+      .alert.alert-error=errorMsg
+    .control-group
+      Em.TextField valueBinding="email" id="email" placeholder="email"
+    .control-group
+      Em.TextField valueBinding="password" type="password" id="password" placeholder="password"
+    .form-actions
+      input.btn.confirm{action login} type="submit" value="Login"
+      input.btn.cancel{action cancel} type="submit" value="Cancel"
 

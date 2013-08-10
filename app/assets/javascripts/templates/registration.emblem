@@ -1,25 +1,18 @@
-form.form-horizontal
-  legend Registration
-  if errorMsg
-    .alert.alert-error=errorMsg
-  .control-group
-    label.control-label for="email" Name
-    .controls
-      Em.TextField valueBinding="name" id="name" action="create"
-  .control-group
-    label.control-label for="email" Email
-    .controls
-      Em.TextField valueBinding="email" id="email" action="create"
-  .control-group
-    label class="control-label" for="password" Password
-    .controls
-      Ember.TextField valueBinding="password" type="password" id="password" action="create"
-      br
-      | (at least 6 chars)
-  .control-group
-    label class="control-label" for="password_confirmation" Confirm Password
-    .controls
-      Ember.TextField valueBinding="password_confirmation" type="password" id="password_confirmation" action="create"
-  .form-actions
-    input.btn.btn-primary{action register} type="submit" value="Register"
-    input.btn{action cancel} type="submit" value="Cancel"
+#registration.form-page
+  form#register
+    legend Register
+    if errorMsg
+      .alert.alert-error=errorMsg
+    .control-group
+      Em.TextField valueBinding="name" id="name" placeholder="name" action="create"
+    .control-group
+      Em.TextField valueBinding="email" id="email" placeholder="email" action="create"
+    .control-group
+      Ember.TextField valueBinding="password" type="password" id="password" placeholder="password" action="create"
+        br
+        | (at least 6 chars)
+    .control-group
+      Ember.TextField valueBinding="password_confirmation" type="password" placeholder="password confirmation" id="password_confirmation" action="create"
+    .form-actions
+      input.btn.confirm{action register} type="submit" value="Register"
+      input.btn.cancel{action cancel} type="submit" value="Cancel"

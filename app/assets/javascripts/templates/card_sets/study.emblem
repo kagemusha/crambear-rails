@@ -1,29 +1,30 @@
-#connector1
-#study-filters-bar
-  | Filters:&nbsp;&nbsp;
-  each filters
-    button{bindAttr class=":study-filter-button isSelected"}{action toggleFilter id} #{name}
-#study-btn-bar
-  #study-set-name
-    cardSetName
-  if finished
-    button{action restart} Restart
-  else
-    #study-buttons
-      if isShowingFront
-        button{action flip} id="flipBtn" Show Answer
-      else
-        button{action correct} id="correctBtn" Correct
-        button{action wrong}  Wrong
-  #study-status-msg
-    statusMsg
-.study-panel
-  if finished
-    #study-results
-      | You got #{correctCount} out of #{filteredTotal} of right
+#study-page
+  #connector1
+  #study-filters-bar
+    | Filters:&nbsp;&nbsp;
+    each filters
+      button{bindAttr class=":study-filter-button isSelected"}{action toggleFilter id} #{name}
+  #study-btn-bar
+    #study-set-name
+      cardSetName
+    if finished
+      button{action restart} Restart
+    else
+      #study-buttons
+        if isShowingFront
+          button{action flip} id="flipBtn" Show Answer
+        else
+          button{action correct} id="correctBtn" Correct
+          button{action wrong}  Wrong
+    #study-status-msg
+      statusMsg
+  .study-panel
+    if finished
+      #study-results
+        | You got #{correctCount} out of #{filteredTotal} of right
 
-  unless finished
-    #cardBack{bindAttr class=":card isShowingFront isShowingBack"}
-      = back
-    #cardFront.card
-      = front
+    unless finished
+      #cardBack{bindAttr class=":card isShowingFront isShowingBack"}
+        = back
+      #cardFront.card
+        = front
