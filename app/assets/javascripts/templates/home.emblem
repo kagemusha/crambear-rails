@@ -1,5 +1,9 @@
-h1 Crambear - Flash Cards in Ember
-p
-  | Ember.js does flash cards at Crambear
-
+#home.one-col-page
+  h1 Crambear - a flash cards site built using Ember.js
+  p
+    a href="#/login" Login
+    | ,&nbsp;
+    a href="#/register" Register
+    | , or &nbsp
+    a href="https:github.com/kagemusha/crambear" View the source
 
