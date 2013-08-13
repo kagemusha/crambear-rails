@@ -1,7 +1,8 @@
 #study-page
   #connector1
   #study-filters-bar
-    | Filters:&nbsp;&nbsp;
+    button{bindAttr class=":study-filter-button isShowingArchived"}{action toggleArchived} show archived
+    span.label &nbsp;&nbsp;Filters:&nbsp;&nbsp;
     each filters
       button{bindAttr class=":study-filter-button isSelected"}{action toggleFilter id} #{name}
   #study-btn-bar

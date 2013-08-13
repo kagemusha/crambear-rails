@@ -231,7 +231,6 @@ a.button:hover
     line-height: 100%
     height: 40px
 
-
 #no-set-selected-msg
   text-align: center
   font-size: 26px
@@ -382,8 +381,6 @@ input.btn
   margin: 0
 
 
-
-
 //#labels
 ul#set-labels
   margin: 0
@@ -451,13 +448,14 @@ $study-elem-width: 800px
   margin-top: 12px
   padding:  4px $study-elem-horiz-padding
   width: 852px
-
+  .label
+    font-weight: bold
 .study-filter-button
   margin-right: 6px
   min-width: 70px
   background: #d3d3d3
-  &.is-selected
-    background: $card_green
+  &.is-selected, &.is-showing-archived
+    background: purple
 
 $studyBtnBarHeight: 40px
 #study-btn-bar

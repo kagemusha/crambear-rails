@@ -3,10 +3,14 @@ App.CardSetsStudyController = Ember.ObjectController.extend
   cards: Em.computed.alias("content.cards")
   cardSetName: Em.computed.alias("content.name")
   pageRendered: true
+  isShowingArchived: false
   isShowingFront: false
   isShowingBack: (-> @get("pageRendered") and not @get("isShowingFront")
   ).property("isShowingFront", "pageRendered")
-  hideArchived: true
+  toggleArchived: ->
+    log.log "togArch"
+    @set("isShowingArchived", !@get("isShowingArchived"))
+    @restart()
   correctCount: 0
   cardsLeft: 0
   finished: false
@@ -57,8 +61,8 @@ App.CardSetsStudyController = Ember.ObjectController.extend
     log.log "order: #{@order}"
 
   inFilter: (card)->
-    #filter out archived unless hideArchived is false
-    return false if (@get("hideArchived") and card.get("archived") == true)
+    #filter out archived unless isShowingArchived is true
+    return false if (card.get("archived") and not @get("isShowingArchived") )
 
     #if no filters, show everything
     return true if @get("selectedFilterIds.length") == 0
