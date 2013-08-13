@@ -1,7 +1,12 @@
 App.CardController = Em.ObjectController.extend
   needs: ['cardSetLabels']
-  isEditing: false
 
+  isEditing: false
+  #gotta be better way to do all this - maybe need custom view
+  isArchived: Em.computed.alias("archived")
+  toggleArchived: ->
+    @set("archived", !@get("archived"))
+    @save()
   toggleLabel: (labelId) ->
     labelId *= 1 #force type => number
     lbls = @get("labelIds")
@@ -16,7 +21,6 @@ App.CardController = Em.ObjectController.extend
     # save, must call transitionTo('updated') manually
     model = @get('content')
     model.stateManager.transitionTo('updated');
-
     @save()
 
   hasLabel: (id)->

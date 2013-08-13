@@ -1,5 +1,6 @@
 li.card
   .labels
+    button{bindAttr class=":card-label-button isArchived"}{action toggleArchived} archived
     partial "cards/labels"
   if isEditing
     .front
