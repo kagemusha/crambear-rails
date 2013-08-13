@@ -1,5 +1,7 @@
 App.CardSetCardsController = Em.ArrayController.extend
   needs: ['cardSet', 'cardSetLabels']
+  sortProperties: ['createdAt']
+  sortAscending: false
   labels: Em.computed.alias('controllers.cardSetLabels.content')
   itemController: 'card'
   isAddingNew: false

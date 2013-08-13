@@ -5,3 +5,5 @@ App.Card = DS.Model.extend
   back: DS.attr 'string'
   archived: DS.attr 'boolean'
   labelIds: DS.attr 'array'
+  createdAt: DS.attr 'date'
+  updatedAt: DS.attr 'date'
