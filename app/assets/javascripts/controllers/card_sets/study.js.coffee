@@ -55,6 +55,7 @@ App.CardSetsStudyController = Ember.ObjectController.extend
     cards = @get("cards")
     filteredCardIds = for i in cardPositions when @inFilter(cards.objectAt(i))
       i
+    filteredCardIds = _.shuffle filteredCardIds
     @set("order", filteredCardIds)
     @set("filteredTotal", @order.length)
     @set("cardsLeft", @order.length)
