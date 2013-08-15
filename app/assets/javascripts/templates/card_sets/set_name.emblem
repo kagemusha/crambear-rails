@@ -5,7 +5,8 @@ if isEditingName
     | Click to Cancel, Press Enter to Save
 else
   linkTo card_sets.study controller id="study-btn" class="btn" | Study!
-  button#delete-btn{action delete}  x
   #card-set-name
+    #del-btn-container
+      button#delete-btn{action delete}  x
     = name
 

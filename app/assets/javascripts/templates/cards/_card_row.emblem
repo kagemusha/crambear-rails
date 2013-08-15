@@ -3,13 +3,7 @@ li.card
     button{bindAttr class=":card-label-button isArchived"}{action toggleArchived} archived
     partial "cards/labels"
   if isEditing
-    .front
-      Em.TextArea valueBinding="front" rows=4
-    .back
-      Em.TextArea valueBinding="back" rows=4
-    .actions
-      button.mini{action save content} Save
-      button.mini{action cancelEditMode content} Cancel
+    partial "cards/edit"
   else
     .front
       content.front

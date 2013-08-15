@@ -1,10 +1,8 @@
-table.table.table-hover#cardForm
-  tbody
-    tr
-      td
-        Em.TextArea valueBinding="front" placeholder="front" class='addCardField'
-      td
-        Em.TextArea valueBinding="back" placeholder="back"  class='addCardField'
-      td.actions
-        button.btn.btn-mini.btn-primary{action save this} Save
-        button.btn.btn-mini{action cancel this} Cancel
+#card-form
+  /.side
+  Em.TextArea valueBinding="front" placeholder="front" class='card-field' id='front-field'
+  /.side
+  Em.TextArea valueBinding="back" placeholder="back"  class='card-field' id='back-field'
+  .actions
+    button.btn.btn-mini.btn-primary{action save this} Save
+    button.btn.btn-mini{action cancel this} Cancel

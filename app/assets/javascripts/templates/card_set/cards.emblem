@@ -1,4 +1,4 @@
-#cards-list
+#cards-list-container
   ul#set-cards
     li.header
       .front
