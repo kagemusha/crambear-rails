@@ -3,60 +3,25 @@ $card_green: #7cfc00
 $study-yellow: #FFDB58
 $ember-red: #d84a32
 //from madmadapps
-$heading_bg: #eceff6
+$heading_bg: #D1E1F0
 $studyEndBg: #9FF8F9
 $greenBg: #7cfc00
-
 $tech_color:  #33DDFF
 $proj_color:  #7cfc00
 
-$width: 720px
-$width2:  674px
+//dimensions
 $left_offset: 80px
 $maxWidth: 700px
 $horiz_padding: 24px
-
-@mixin borderRadius($radius)
-  border-radius: $radius
-  -webkit-border-radius: $radius
-  -moz-border-radius: $radius
-
-@mixin box-shadow($hOffset, $vOffset, $shadow, $color)
-  box-shadow: $hOffset $vOffset $shadow $color
-  -webkit-box-shadow: $hOffset $vOffset $shadow $color
-  -moz-box-shadow: $hOffset $vOffset $shadow $color
-
-@mixin button($bg, $col, $focus_bg, $focus_col: inherited, $height: 22px, $radius: 0, $min_width: 0)
-  display: inline-block
-  min-width: $min_width
-  @include borderRadius($radius)
-  background: $bg
-  color: $col
-  font-weight: bold
-  font-size: 16px
-  height: $height
-  text-align: center
-  padding: 6px 8px
-  &:hover, &:focus
-    background-color: $focus_bg
-    color: $focus_col
-
-//end from madmadapps
-body
-  margin: 0
-
-ul
-  list-style-type: none
-a
-  text-decoration: none
+$topnavbar-height: 40px
+$content-left-offset: 260px
+$banner-left-margin: 292px
+$user-management-r-margin: 110px
 
 .one-col-page
   margin-left: 100px
   margin-top: 20px
   font-size: 20px
-
-
-
 
 #navbar-top
   width: 100%
