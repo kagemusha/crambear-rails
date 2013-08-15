@@ -2,6 +2,8 @@ App.CardSetsStudyController = Ember.ObjectController.extend
   needs: ['cardSetLabels']
   cards: Em.computed.alias("content.cards")
   cardSetName: Em.computed.alias("content.name")
+  front: Em.computed.alias("currentCard.front")
+  back: Em.computed.alias("currentCard.back")
   pageRendered: true
   isShowingArchived: false
   isShowingFront: false
@@ -62,18 +64,18 @@ App.CardSetsStudyController = Ember.ObjectController.extend
     log.log "order: #{@order}"
 
   inFilter: (card)->
-    #filter out archived unless isShowingArchived is true
+
+    #filter out archived unless isShowingArchived
     return false if (card.get("archived") and not @get("isShowingArchived") )
 
     #if no filters, show everything
     return true if @get("selectedFilterIds.length") == 0
 
+    #since here are filters, filter out card if it doesn't have any labels
     cardLabels = card.get("labelIds")
-    #since here are filters, filter out if card doesn't have any labels
     return false unless cardLabels and cardLabels.get("length") > 0
 
     selectedFilters = @get('selectedFilterIds')
-
     includedLabel = selectedFilters.find( (labelId)->
       #show card if has a label of selected filters
       cardLabels.contains(1*labelId)
@@ -81,14 +83,6 @@ App.CardSetsStudyController = Ember.ObjectController.extend
     !!(includedLabel?)
 
   initLabels: -> Em.K()
-
-  front: (->
-    @get('currentCard.front')
-  ).property('currentCard')
-
-  back: (->
-    @get('currentCard.back')
-  ).property('currentCard')
 
   flip: ->
     log.log "action flipped"
@@ -111,3 +105,4 @@ App.CardSetsStudyController = Ember.ObjectController.extend
       cardId = @order.shift()
       @set "currentCard", @get("cards").objectAt(cardId)
       @set("cardsLeft", @order.length+1)
+
