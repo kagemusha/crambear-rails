@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
-gem 'rails', '3.2.12'
+
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.0'
 
 gem 'jquery-rails'
 gem 'ember-rails'
@@ -12,7 +15,7 @@ gem "rails_admin"
 gem "thin", ">= 1.5.0"
 gem "haml", ">= 3.1.7"
 
-gem 'compass-rails'
+#gem 'compass-rails'
 #gem "bootstrap-sass", ">= 2.2.2.0"
 
 gem "devise", ">= 2.2.3"
@@ -21,12 +24,9 @@ gem "rolify", ">= 3.2.0"
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem "figaro", ">= 0.5.3"
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'uglifier', '>= 1.0.3'
-  #gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
-  gem 'coffee-rails', '~> 3.2.1'
-end
+gem 'sass-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
 
 
 group :development do
@@ -47,7 +47,7 @@ group :test do
 end
 
 gem 'pg'
-gem 'postgres_ext'
+#gem 'postgres_ext'
 
 group :test, :development do
   gem "rspec-rails", ">= 2.12.2"
