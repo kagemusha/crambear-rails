@@ -101,6 +101,7 @@ App.CardSetsStudyRoute = Em.Route.extend
 App.LoginRoute = Em.Route.extend
   model: (params) -> Em.Object.create()
   setupController: (controller, model) ->
+    controller.set 'content', model
     controller.set "errorMsg", ""
   events:
     cancel: ->
