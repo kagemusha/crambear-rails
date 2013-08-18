@@ -1,5 +1,4 @@
-if showSidebar
-  #sidebar
-    partial "card_sets/set_list"
+#sidebar
+  partial "card_sets/set_list"
 #content
   outlet

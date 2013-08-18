@@ -1,13 +1,13 @@
-App.Router.reopen
-  didTransition: (infos)->
-    @_super(infos)
-    appController = this.container.lookup('controller:application')
-    @showSidebar appController.get('currentPath')
-
-  hideSideBarRoutes: ['card_sets.study']
-  showSidebar: (currentPath) ->
-    cardSetController = this.container.lookup('controller:cardSets')
-    cardSetController.set "showSidebar", !@get('hideSideBarRoutes').contains(currentPath)
+#App.Router.reopen
+#  didTransition: (infos)->
+#    @_super(infos)
+#    appController = this.container.lookup('controller:application')
+#    @showSidebar appController.get('currentPath')
+#
+#  hideSideBarRoutes: ['card_sets.study']
+#  showSidebar: (currentPath) ->
+#    cardSetController = this.container.lookup('controller:cardSets')
+#    cardSetController.set "showSidebar", !@get('hideSideBarRoutes').contains(currentPath)
 
 ## At some point want to move routes to own file
 ## They are grouped together here for ease of exposition
@@ -20,10 +20,11 @@ App.Router.map ->
   @route "help"
   @route "login"
   @route "registration"
+  @route 'study', { path: '/study/:card_set_id' }
   @resource 'card_sets', ->
     @route 'new'
     @resource 'card_set', { path: ':card_set_id' }
-    @route 'study', { path: ':card_set_id/study' }
+
 
 
 
@@ -90,7 +91,7 @@ App.CardSetRoute = Em.Route.extend
     @controllerFor('cardSetCards').set('content', model.get('cards'))
     @controllerFor('cardSetLabels').set('content', model.get('labels'))
 
-App.CardSetsStudyRoute = Em.Route.extend
+App.StudyRoute = Em.Route.extend
   model: (params) ->  App.CardSet.find(params?.card_set_id)
 
   setupController: (controller, model) ->

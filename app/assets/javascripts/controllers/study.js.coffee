@@ -1,4 +1,4 @@
-App.CardSetsStudyController = Ember.ObjectController.extend
+App.StudyController = Ember.ObjectController.extend
   needs: ['cardSetLabels']
   cards: Em.computed.alias("content.cards")
   cardSetName: Em.computed.alias("content.name")
