@@ -1,7 +1,7 @@
 #navbar-top
   #nav-links
   #banner
-    linkTo index | Crambear
+    linkTo "index" | Crambear
   #blurb
     | flash cards built on&nbsp;&nbsp;
     a href="https:github.com/emberjs/ember.js" Ember.js
