@@ -1,4 +1,5 @@
 @import compass
+
 $card_green: #7cfc00
 $study-yellow: #FFDB58
 $ember-red: #d84a32
@@ -43,12 +44,6 @@ $cards-list-container-min-width: 500px
   margin-bottom: 20px
   float: left
 
-//#sidebar
-//  position: absolute
-//  left: 80px
-//  width: 210px
-//  margin-right: 10px
-//  height: calc(100% - 196px)
 
 #content
   margin-left: $content-left-offset
@@ -435,142 +430,6 @@ textarea.card-field
   height: 200px
 
 
-/*  study related */
-
-#study-page
-  min-width:  800px
-  width: 100%
-  margin: 30px 0 0 $study-page-left-margin
-  //margin:  0px auto
-
-
-$study-elem-horiz-padding: 4px
-$study-elem-width: 800px
-#study-filters-bar
-  border-top: 1px black solid
-  margin-top: 12px
-  padding:  4px $study-elem-horiz-padding
-  width: 852px
-  .label
-    font-weight: bold
-.study-filter-button
-  margin-right: 6px
-  min-width: 70px
-  background: #d3d3d3
-  &.is-selected, &.is-showing-archived
-    background: purple
-
-$studyBtnBarHeight: 40px
-#study-btn-bar
-  position: relative
-  text-align: center
-  border-top: 3px black solid
-  border-bottom: 3px black solid
-  padding:  10px 30px
-  height: $studyBtnBarHeight
-  margin-bottom: 14px
-  width: $study-elem-width
-  button
-    font-size: 32px
-    min-width: 160px
-    height: $studyBtnBarHeight
-    border: 3px black solid
-    background: beige
-    color: red
-    font-weight: bold
-    box-shadow: "10px 10px 5px #888888"
-  #correctBtn
-    color: #006400
-  #study-set-name
-    position: absolute
-    font-size: 22px
-    color:  purple
-    font-weight: bold
-    width: 240px
-    overflow: hidden
-    text-align: left
-    left:  4px
-    bottom:  0
-  #study-status-msg
-    position: absolute
-    font-size: 22px
-    color:  purple
-    font-weight: bold
-    width: 240px
-    text-align: right
-    right:  4px
-    top:  2px
-#study-buttons
-  width: 50%
-  margin: 0 auto
-
-
-@mixin expandedCard
-  padding: 30px
-  font-size: 22px
-  font-weight: bold
-  min-height: 240px
-  background: #7cfc00
-  border-radius: 12px
-  margin-bottom: 10px
-
-@mixin collapsedCard
-  background: black
-  color:  black
-  height: 20px
-  min-height: 20px
-  padding:  0 30px
-  font-size: 0
-
-#study-results
-  font-size: 22px
-  padding: 10px
-.study-panel
-  position: relative
-  .card
-    width: $study-elem-width
-    @include expandedCard
-
-#cardBack.is-showing-front
-  @include collapsedCard
-
-.is-showing-back
-  -moz-animation: expand-card 0.3s 1
-  -webkit-animation: expand-card 0.3s 1
-  animation: expand-card 0.3s 1
-
-.is-showing-front
-  -moz-animation: contract-card 0.3s 1
-  -webkit-animation: contract-card 0.3s 1
-  animation: contract-card 0.3s 1
-
-@-webkit-keyframes expand-card
-  0%
-    @include collapsedCard
-  100%
-    @include expandedCard
-
-@-webkit-keyframes contract-card
-  0%
-    @include expandedCard
-    color: $card_green
-  100%
-    @include collapsedCard
-
-#connector1
-  display: none
-  height: 100px
-  background: black
-  width: 10px
-  position: absolute
-  top:  0
-  left:  72%
-
-#study-bear-img
-  position: absolute
-  top:  42px
-  left:  74%
-  z-index: 100
 
 #new-set-page
   width: 600px

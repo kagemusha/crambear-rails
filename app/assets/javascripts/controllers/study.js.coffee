@@ -6,7 +6,7 @@ App.StudyController = Ember.ObjectController.extend
   back: Em.computed.alias("currentCard.back")
   pageRendered: true
   isShowingArchived: false
-  isShowingFront: false
+  isShowingFront: true
   isShowingBack: (-> @get("pageRendered") and not @get("isShowingFront")
   ).property("isShowingFront", "pageRendered")
   toggleArchived: ->
