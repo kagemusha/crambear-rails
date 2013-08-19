@@ -1,8 +1,6 @@
-#card-set-header
-  #card-set-header-top
-    App.CardSetNameView
-  render "card_set/labels"
 if showNewForm
   render "cards/new"
 if hasCards
   render "card_set/cards"
+else
+  | No cards

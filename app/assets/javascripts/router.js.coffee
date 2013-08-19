@@ -90,6 +90,9 @@ App.CardSetRoute = Em.Route.extend
     controller.addCards() if model.get("cards.length")==0 #show new card form if no cards
     @controllerFor('cardSetCards').set('content', model.get('cards'))
     @controllerFor('cardSetLabels').set('content', model.get('labels'))
+  renderTemplate: ->
+    @render('card_set/cards', { outlet: 'card-set-cards' })
+    @render('card_set/header', { outlet: 'card-set-header' })
 
 App.StudyRoute = Em.Route.extend
   model: (params) ->  App.CardSet.find(params?.card_set_id)

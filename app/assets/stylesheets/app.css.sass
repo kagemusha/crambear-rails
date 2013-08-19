@@ -17,8 +17,11 @@ $topnavbar-height: 40px
 $content-left-offset: 260px
 $banner-left-margin: 292px
 $user-management-r-margin: 110px
+$card-set-header-height: 150px
+$sidebar-elem-width: 196px
+$header-vert-padding: 10px
 $study-page-left-margin: 250px
-
+$cards-list-container-min-width: 500px
 .one-col-page
   margin-left: 100px
   margin-top: 20px
@@ -26,7 +29,7 @@ $study-page-left-margin: 250px
 
 #navbar-top
   width: 100%
-  min-width: 600px
+  min-width: 1100px
   float: left
   background: black
   color:  white
@@ -40,17 +43,14 @@ $study-page-left-margin: 250px
   margin-bottom: 20px
   float: left
 
-#sidebar
-  position: absolute
-  left: 80px
-  width: 210px
-  margin-right: 10px
-  height: calc(100% - 196px)
-
-
+//#sidebar
+//  position: absolute
+//  left: 80px
+//  width: 210px
+//  margin-right: 10px
+//  height: calc(100% - 196px)
 
 #content
-  //margin-top: 10px
   margin-left: $content-left-offset
   margin-right: 40px
   height: 100%
@@ -64,8 +64,6 @@ $study-page-left-margin: 250px
   padding: 5px
   text-align: center
   margin: 20px 0
-
-
 
 /* top-nav */
 #banner
@@ -130,20 +128,25 @@ $study-page-left-margin: 250px
   color: white
 /* end top-nav */
 
-//card set sidebar
-$sidebar-elem-width: 196px
-$set-heading-height: 120px
-$set-admin-padding: 10px
+
+#card-sets-table
+  margin: 40px
+  tr#set-header
+    height: $card-set-header-height
+  td, td
+    vertical-align: top
+  td#sets
+    background: $heading_bg
+    border-bottom-left-radius: 18px
 
 #set-admin
   background: $heading_bg
   color: purple
   width: $sidebar-elem-width
   border-top-left-radius: 18px
-  height:  100px //calc($set-heading-height - 20px )
-  margin: 40px 0 -12px 0
+  height:  $card-set-header-height
   text-align: center
-  padding: $set-admin-padding
+  padding: $header-vert-padding $header-vert-padding
   #new-set-btn
     margin: 0
   .field
@@ -151,9 +154,9 @@ $set-admin-padding: 10px
 #card-set-search
   border-radius: 4px
 #card-sets-list-container
-  height: calc(100% + 13px)  //crazy
+  //height: calc(100% + 13px)  //crazy
   width: 216px
-  background: $heading_bg
+  //background: $heading_bg
   border-bottom-left-radius: 18px
 ul#card-sets
   //margin-top: 8px
@@ -181,19 +184,15 @@ ul#card-sets
 
 
 #card-set-header
-  margin-top: 40px
   position: relative
   background: $heading_bg
   border-top-right-radius: 18px
-  padding-left: 6px
-  height: $set-heading-height
-  width:  calc(100% - 5px)
+  padding: $header-vert-padding 6px
+  height:  $card-set-header-height
 
 
 #card-set-header-top
   height: 44px
-  margin-bottom: 4px
-  width:  100%
   #study-btn
     background: red
     font-weight: bold
@@ -205,10 +204,6 @@ ul#card-sets
     top: 12px
     right: 20px
   #card-set-name
-    //position: absolute
-    //top:  16px
-    //left: 40px
-    margin-top: 12px
     padding: 4px 4px 4px 22px
     color: purple
     font-family: arial
@@ -242,8 +237,9 @@ ul#card-sets
 #cards-list-container
   float: left
   background: $card_green
+  min-width: $cards-list-container-min-width
   padding:  0
-  margin:  4px 0 0 0
+  //margin:  4px 0 0 0
   height: 100%
   border-bottom-right-radius: 18px
 

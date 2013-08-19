@@ -1,4 +1,11 @@
-#sidebar
-  partial "card_sets/set_list"
-#content
-  outlet
+table#card-sets-table
+  tr#set-header
+    td
+      partial "card_sets/set-admin"
+    td
+      outlet "card-set-header"
+  tr
+    td#sets
+      partial "card_sets/list"
+    td
+      outlet "card-set-cards"

@@ -6,14 +6,3 @@
     | Sort (todo): &nbsp;alpha
   .field
     linkTo "card_sets.new" class="btn" id="new-set-btn"  |  New Set
-
-
-#card-sets-list-container
-  ul#card-sets
-    each card_set in controller
-      li
-        linkTo "card_set" card_set class="card-set-button"
-          = card_set.name
-    else
-      li.no_cards.text-info
-        | Login or register
