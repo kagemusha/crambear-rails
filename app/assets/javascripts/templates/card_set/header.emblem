@@ -1,4 +1,4 @@
 #card-set-header
   #card-set-header-top
-    App.CardSetNameView
+    partial 'card_sets/set_name'
   render "card_set/labels"

@@ -8,5 +8,5 @@ else
   #card-set-name
     #del-btn-container
       button#delete-btn{action delete}  x
-    = name
+    span{action editName}=name
 
