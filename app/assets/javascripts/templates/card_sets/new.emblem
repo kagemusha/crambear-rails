@@ -1,13 +1,13 @@
-#new-set-page
+#new-card-set-form{bindAttr class="isAddingSet"}
   h2 New Set
-
   .form-horizontal
     .control-group
-      label.control-label for="name" Set Name
       .controls
-        Em.TextField valueBinding="name" id="name" action="create"
+        Em.TextField valueBinding="name" id="name" action="create" placeholder="Name"
+      /.controls
+      /  Em.TextField valueBinding="description" id="description" action="create" placeholder="Description"
+    br
     .form-actions
-      input.btn{action save} type="submit" value="Create Set"
+      button{action save} type="submit" Create Set
       | &nbsp;
-      input.btn{action cancel} type="submit" value="Close"
-
+      button{action cancel} type="submit" Close

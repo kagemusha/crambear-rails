@@ -9,8 +9,6 @@ App.Router.map ->
     @resource 'card_set', { path: ':card_set_id' }
 
 
-
-
 App.IndexRoute = Em.Route.extend
   beforeModel: ->
     if App.authenticated
@@ -74,7 +72,7 @@ App.CardSetRoute = Em.Route.extend
     @controllerFor('cardSetCards').set('content', model.get('cards'))
     @controllerFor('cardSetLabels').set('content', model.get('labels'))
   renderTemplate: ->
-    @render('card_set/cards', { outlet: 'card-set-cards' })
+    @render('card_set', { outlet: 'card-set' })
     @render('card_set/header', { outlet: 'card-set-header' })
 
 App.StudyRoute = Em.Route.extend

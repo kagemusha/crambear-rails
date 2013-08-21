@@ -16,14 +16,19 @@ $left_offset: 80px
 $maxWidth: 700px
 $horiz_padding: 24px
 $topnavbar-height: 40px
-$content-left-offset: 260px
+//$content-left-offset: 260px
 $banner-left-margin: 292px
 $user-management-r-margin: 110px
 $card-set-header-height: 150px
 $sidebar-elem-width: 196px
 $header-vert-padding: 10px
+$set-admin-v-pad: 10px
+$set-admin-h-pad: 10px
 $study-page-left-margin: 250px
-$cards-list-container-min-width: 500px
+$cards-list-container-min-width: 800px
+$table-vert-margin: 60px
+$table-horiz-margin: 80px
+
 .one-col-page
   margin-left: 100px
   margin-top: 20px
@@ -41,22 +46,19 @@ $cards-list-container-min-width: 500px
 
 #main
   position: relative
-  padding: 20px 40px 0 40px
   margin-bottom: 20px
   float: left
 
-
-#content
-  margin-left: $content-left-offset
-  margin-right: 40px
-  height: 100%
+//#content
+//  margin-left: $content-left-offset
+//  margin-right: 40px
+//  height: 100%
 
 #footer
   margin-top: 60px
   width: 100%
   height: 60px
 #disclaimer
-  //border-top: black dotted 1px
   padding: 5px
   text-align: center
   margin: 20px 0
@@ -66,7 +68,6 @@ $cards-list-container-min-width: 500px
   float: left
   margin-left: $banner-left-margin
   width: 150px
-  //text-align: center
   a
     font-size: 32px
     font-weight: bold
@@ -126,7 +127,7 @@ $cards-list-container-min-width: 500px
 
 
 #card-sets-table
-  margin: 40px
+  margin: $table-vert-margin $table-horiz-margin
   tr#set-header
     height: $card-set-header-height
   td, td
@@ -134,6 +135,9 @@ $cards-list-container-min-width: 500px
   td#sets
     background: $heading_bg
     border-bottom-left-radius: 18px
+  td#cards
+    background: $card_green
+    border-bottom-right-radius: 18px
 
 #set-admin
   background: $heading_bg
@@ -142,7 +146,7 @@ $cards-list-container-min-width: 500px
   border-top-left-radius: 18px
   height:  $card-set-header-height
   text-align: center
-  padding: $header-vert-padding $header-vert-padding
+  padding: $set-admin-v-pad $set-admin-h-pad
   #new-set-btn
     margin: 0
   .field
@@ -178,14 +182,13 @@ ul#card-sets
       padding-top: 20px
       text-decoration: none
 
-
 #card-set-header
   position: relative
   background: $heading_bg
   border-top-right-radius: 18px
   padding: $header-vert-padding 6px
   height:  $card-set-header-height
-
+  min-width: $cards-list-container-min-width
 
 #card-set-header-top
   height: 44px
@@ -222,6 +225,18 @@ ul#card-sets
       background: black
 
 
+#new-card-set-form
+  z-index: 99
+  display: block
+  position: absolute
+  top: $table-vert-margin
+  left: calc(#{$table-horiz-margin} + #{$sidebar-elem-width} + 2 * #{$set-admin-h-pad} + 6px)
+  background: $card_green
+  height:  $card-set-header-height
+  padding: $header-vert-padding 20px
+  border-radius: 18px
+
+
 #no-set-selected-msg
   text-align: center
   font-size: 26px
@@ -230,18 +245,19 @@ ul#card-sets
   margin-left: 200px
   width: 300px
 
-#cards-list-container
-  float: left
-  background: $card_green
-  min-width: $cards-list-container-min-width
-  padding:  0
-  //margin:  4px 0 0 0
-  height: 100%
-  border-bottom-right-radius: 18px
+//#cards-list-container
+//  background: $card_green
+//  min-width: $cards-list-container-min-width
+//  padding:  0
+//  height: 100%
+//  border-bottom-right-radius: 18px
 
 
 ul#set-cards
-  height: 60%
+  background: $card_green
+  min-width: $cards-list-container-min-width
+  height: 100%
+  border-bottom-right-radius: 18px
   float: left
   padding: 10px
   margin:  0
@@ -358,8 +374,6 @@ input.btn
   margin: 0
 
 
-
-
 ul#set-labels
   margin-left: 20px
   padding: 0 0 0 4px
@@ -412,9 +426,7 @@ button
 
 #card-form
   height: 260px
-  padding: 14px 0px 14px 5px
-  margin: 20px 0
-  border-radius: 12px
+  padding: 14px 0
   background: $greenBg
   width: 100%
   .actions

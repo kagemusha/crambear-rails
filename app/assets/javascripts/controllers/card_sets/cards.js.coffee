@@ -1,24 +1,18 @@
 App.CardSetCardsController = Em.ArrayController.extend
-  needs: ['cardSet', 'cardSetLabels']
+  needs: ['cardSet', 'cardSetLabels',"cardsNew"]
+  empty: Em.computed.empty('content')
+  isShowingAddCardsButton: Em.computed.not("controllers.cardSet.isShowingNewCardsForm")
   sortProperties: ['createdAt']
   sortAscending: false
   labels: Em.computed.alias('controllers.cardSetLabels.content')
   itemController: 'card'
-  isAddingNew: false
 
-#  state: "viewing"
-#  isViewing: (-> @get('state')=="viewing").property("state")
-#  isAdding: (-> @get('state')=="adding").property("state")
-#  isEditing: Em.computed.equal('state', 'editing')
-#  add: ->
-#    @set 'state', "adding"
-#    @get("controllers.cardsNew").startEditing()
-#  edit: ->
-#    @set 'state', "editing"
-#  cancel: -> @set 'state', "viewing"
-#  saveAdd: ->
-#    @set 'state', "viewing"
-#  stopEditing: -> Em.K()
-#  cancel: (controller) ->
-#    controller.stopEditing() #can be either adding new or editing
-#    @set("state", "viewing")
+  update: ->
+    @transaction.commit()
+    @transaction = undefined
+    @set 'isEditingName', false
+  addCards: ->
+    log.log "cardsetcardcontroller- add cards"
+    @set "controllers.cardSet.isAddingNew", true
+    @get("controllers.cardsNew").startEditing()
+

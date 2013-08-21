@@ -5,8 +5,9 @@
         | &nbsp;&nbsp;Front
       .back
         | Back
-        #add-cards
-          button{action addCards}  Add Cards
+        if isShowingAddCardsButton
+          #add-cards
+            button{action addCards} Add Cards
 
     each controller
       partial "cards/card_row"

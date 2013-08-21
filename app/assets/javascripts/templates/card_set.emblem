@@ -1,6 +1,3 @@
-if showNewForm
+if isShowingNewCardsForm
   render "cards/new"
-if hasCards
-  render "card_set/cards"
-else
-  | No cards
+render "card_set/cards"

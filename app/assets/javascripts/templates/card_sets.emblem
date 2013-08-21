@@ -1,3 +1,5 @@
+if isAddingNew
+  render "card_sets/new"
 table#card-sets-table
   tr#set-header
     td
@@ -7,5 +9,5 @@ table#card-sets-table
   tr
     td#sets
       partial "card_sets/list"
-    td
-      outlet "card-set-cards"
+    td#cards
+      outlet "card-set"

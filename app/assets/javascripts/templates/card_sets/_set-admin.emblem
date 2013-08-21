@@ -1,8 +1,8 @@
 #set-admin
   .field
     Em.TextField valueBinding="name" placeholder='Search (todo)' id='card-set-search'
-  /input type='text' placeholder='Search' id='card-set-search'
   .field
     | Sort (todo): &nbsp;alpha
   .field
-    linkTo "card_sets.new" class="btn" id="new-set-btn"  |  New Set
+    if showAddSetButton
+      button{action addSet} Add Set
