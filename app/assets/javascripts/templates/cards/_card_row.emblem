@@ -9,8 +9,3 @@ li.card
       content.front
     .back
       content.back
-  /attempt2
-  /App.CardLabelsView contentBinding="labels"
-  /each label in labels
-  /attempt1
-  /  = label.name
