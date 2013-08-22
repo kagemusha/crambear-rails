@@ -252,8 +252,12 @@ ul#card-sets
 //  height: 100%
 //  border-bottom-right-radius: 18px
 
+@mixin card-side
+  font-size: 22px
+  padding: 0 6px
+  float: left
 
-ul#set-cards
+ul#cards
   background: $card_green
   min-width: $cards-list-container-min-width
   height: 100%
@@ -262,38 +266,43 @@ ul#set-cards
   padding: 10px
   margin:  0
   li
+    position: relative
     float: left
     margin:  8px 0
-    //background: $card_green
     width: 100%
-    padding: 4px 2px
+    padding: 4px 6px
     border-radius: 8px
+    &:hover
+      button.card-delete-btn
+        display: inline-block
+    button.card-delete-btn
+      position: absolute
+      left: -6px
+      top: 26px
+      padding: 0 5px 3px 5px
+      display: none
+      border-radius: 20%
+      background: black
     .front
+      margin-left: 10px
+      width: 47%
       color: purple
-      font-size: 22px
-      padding: 0 6px
-      width: 48%
-      float: left
       font-weight: bold
+      @include card-side
     .back
-      font-size: 22px
-      padding: 0 6px
       width: 48%
-      float: left
+      @include card-side
     &.header
       .front, .back
         position: relative
         font-weight: bold
         font-size: 26px
-        //border-top: 1px black solid
-        //border-bottom: 1px black solid
         color: black
-        //background: white
-        //padding: 6px 4px
         border-radius: 0
     .labels
       width: 100%
-      padding: 0 4px
+      margin-left: 4px
+      padding: 0 6px
       text-align: left
 
 

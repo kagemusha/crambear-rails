@@ -5,6 +5,8 @@ li.card
   if isEditing
     partial "cards/edit"
   else
+    #del-btn-container
+      button.card-delete-btn{action delete}  x
     .front
       content.front
     .back

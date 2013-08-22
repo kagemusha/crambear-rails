@@ -1,8 +1,8 @@
 #cards-list-container
-  ul#set-cards
+  ul#cards
     li.header
       .front
-        | &nbsp;&nbsp;Front
+        | Front
       .back
         | Back
         if isShowingAddCardsButton

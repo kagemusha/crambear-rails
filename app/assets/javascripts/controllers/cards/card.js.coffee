@@ -53,7 +53,7 @@ App.CardController = Em.ObjectController.extend
     @set 'isEditing', false
 
   delete: ->
-    item = @get('model.content')
+    item = @get('model')
     if (window.confirm("Are you sure you want to delete this card?"))
       @transaction = item.get('store').transaction()
       @transaction.add(item)
