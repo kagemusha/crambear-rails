@@ -38,11 +38,17 @@ App.CardController = Em.ObjectController.extend
       {name: setLbl.get('name'), id: id, isLabelled: @hasLabel(id)}
   ).property("controllers.cardSetLabels.@each", "labelIds.@each")
 
-  enterEditMode: ->
+  edit: ->
     @set "isEditing", true
 
-  cancelEditMode: ->
+  cancel: ->
+    log.log "cancel CardsNewCont"
+    @stopEditing()
     @set "isEditing", false
+
+  stopEditing: ->
+    if @transaction
+      @transaction.rollback()
 
   save: ->
     card = @get('content')

@@ -7,7 +7,7 @@ li.card
   else
     #del-btn-container
       button.card-delete-btn{action delete}  x
-    .front
+    .front{action edit}
       content.front
-    .back
+    .back{action edit}
       content.back
