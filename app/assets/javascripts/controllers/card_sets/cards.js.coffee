@@ -1,9 +1,9 @@
 App.CardSetCardsController = Em.ArrayController.extend
   needs: ['cardSet', 'cardSetLabels',"cardsNew"]
-  empty: Em.computed.empty('content')
   isShowingAddCardsButton: Em.computed.not("controllers.cardSet.isShowingNewCardsForm")
   sortProperties: ['createdAt']
   sortAscending: false
+  isEmpty: Em.computed.empty('content')
   labels: Em.computed.alias('controllers.cardSetLabels.content')
   itemController: 'card'
 

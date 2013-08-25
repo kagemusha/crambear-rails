@@ -1,6 +1,6 @@
 App.CardController = Em.ObjectController.extend
   needs: ['cardSetLabels']
-
+  showCloseButton: true
   isEditing: false
   #gotta be better way to do all this - maybe need custom view
   isArchived: Em.computed.alias("archived")

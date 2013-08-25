@@ -5,4 +5,6 @@
   Em.TextArea valueBinding="back" placeholder="back"  class='card-field' id='back-field'
   .actions
     button.btn.btn-mini.btn-primary{action save this} Save
-    button.btn.btn-mini{action cancel this} Cancel
+    if showCloseButton
+      button.btn.btn-mini{action cancel this}
+        closeButtonLabel

@@ -1,5 +1,7 @@
 App.CardsNewController = Em.ObjectController.extend
-  needs: ["cardSet"]
+  needs: ["cardSet","cardSetCards"]
+  showCloseButton: Em.computed.not("controllers.cardSetCards.isEmpty")
+  closeButtonLabel: "Close"
   startEditing: ->
     log.log "CardsNewController:startEditing"
     @transaction = @get('store').transaction()
