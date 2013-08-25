@@ -12,6 +12,7 @@ EMBER_CARDS = [
     ["What is Ember.K?", "An empty function: Ember.K = function() { return this; }; "],
     ["What is Ember.$?", "An alias for jQuery: Ember.$ = jQuery;"],
     ["How do you pass content to a view?", "Generally in a template. For example\n\nApp.MyView contentBinding='items'\n\nwhere items is defined on your controller"],
+    ["How do you get the HTMLElement that a view encapsulates?", "view.get('element')"],
 #["",""],
 ]
 CSS = [
