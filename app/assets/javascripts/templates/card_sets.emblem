@@ -2,12 +2,14 @@ if isAddingNew
   render "card_sets/new"
 table#card-sets-table
   tr#set-header
-    td
+    td#set-admin-cell
       partial "card_sets/set-admin"
-    td
+    td#set-header-cell
+      #no-set-selected-msg
+        | Select a set to the left or create a new one
       outlet "card-set-header"
   tr
-    td#sets
+    td#sets-cell
       partial "card_sets/list"
-    td#cards
+    td#cards-cell
       outlet "card-set"

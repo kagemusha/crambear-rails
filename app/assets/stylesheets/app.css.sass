@@ -127,17 +127,36 @@ $table-horiz-margin: 80px
 
 
 #card-sets-table
+  position: relative
   margin: $table-vert-margin $table-horiz-margin
   tr#set-header
     height: $card-set-header-height
   td, td
     vertical-align: top
-  td#sets
-    background: $heading_bg
-    border-bottom-left-radius: 18px
-  td#cards
-    background: $card_green
-    border-bottom-right-radius: 18px
+#sets-admin-cell
+  background: $heading_bg
+  border-top-left-radius: 18px
+#set-header-cell
+  position: relative
+  background: $heading_bg
+  border-top-right-radius: 18px
+  min-width: 500px
+#sets-cell
+  background: $heading_bg
+  border-bottom-left-radius: 18px
+#cards-cell
+  background: $card_green
+  border-bottom-right-radius: 18px
+  min-width: 500px
+
+#no-set-selected-msg
+  position: absolute
+  top:  20px
+  left: 40px
+  z-index: 0
+  font-size: 24px
+  font-weight: bold
+
 
 #set-admin
   background: $heading_bg
@@ -237,13 +256,6 @@ ul#card-sets
   border-radius: 18px
 
 
-#no-set-selected-msg
-  text-align: center
-  font-size: 26px
-  line-height: 40px
-  font-family: arial
-  margin-left: 200px
-  width: 300px
 
 //#cards-list-container
 //  background: $card_green
@@ -256,7 +268,7 @@ ul#card-sets
   font-size: 22px
   padding: 0 6px
   float: left
-
+  overflow: hidden
 ul#cards
   background: $card_green
   min-width: $cards-list-container-min-width
