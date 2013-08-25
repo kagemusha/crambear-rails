@@ -1,4 +1,4 @@
 #card-set-header
   #card-set-header-top
-    partial 'card_sets/set_name'
+    partial 'card_set/set_name'
   render "card_set/labels"
