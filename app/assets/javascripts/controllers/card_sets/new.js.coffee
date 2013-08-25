@@ -13,6 +13,7 @@ App.CardSetsNewController = Em.ObjectController.extend
   save: ->
     @transaction.commit()
     @set("controllers.cardSets.isAddingNew", false)
+    @transitionToRoute 'card_set', @get('model')
 
   cancel: ->
     log.log "cancel"
