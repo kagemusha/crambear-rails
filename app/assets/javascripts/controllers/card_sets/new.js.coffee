@@ -1,5 +1,5 @@
 App.CardSetsNewController = Em.ObjectController.extend
-  needs: ["cardSets"]
+  needs: ["cardSets","cardSet"]
 
   startEditing: ->
     @transaction = @get('store').transaction();
@@ -13,6 +13,7 @@ App.CardSetsNewController = Em.ObjectController.extend
   save: ->
     @transaction.commit()
     @set("controllers.cardSets.isAddingNew", false)
+    @set("controllers.cardSet.isAddingNew", true)
     @transitionToRoute 'card_set', @get('model')
 
   cancel: ->
