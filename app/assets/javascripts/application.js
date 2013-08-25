@@ -17,7 +17,7 @@
 //= require vendor/md5
 //= require vendor/handlebars-1.0.0
 //= require vendor/ember-1.0.0-rc.7
-//= require vendor/ember-data
+//= require vendor/ember-data-8-20
 //= require_self
 //= require ember_app
 App = Ember.Application.create({
