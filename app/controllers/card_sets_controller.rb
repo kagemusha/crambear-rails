@@ -8,8 +8,12 @@ class CardSetsController < ApplicationController
   end
   
   def show
-    card_set = CardSet.find(params[:id])
-    render :json=>card_set
+    card_set = CardSet.find_by_id(params[:id])
+    if !card_set
+      render :json => {:error => "not-found"}.to_json, :status => 404
+    else
+      render :json=>card_set
+    end
   end
 
   def create
