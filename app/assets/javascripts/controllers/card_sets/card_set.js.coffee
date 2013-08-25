@@ -5,7 +5,6 @@ App.CardSetController = Em.ObjectController.extend
   isShowingNewCardsForm: Em.computed.or("controllers.cardSetCards.empty", "isAddingNew" )
   editName: ->
     @set 'isEditingName', true
-    log.log "editt: " + @get('isEditingName')
     set = @get('content')
     @transaction = set.get('store').transaction()
     @transaction.add set

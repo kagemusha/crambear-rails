@@ -5,7 +5,6 @@ App.CardSetsController = Em.ArrayController.extend
   isAddingNew: false
   showAddSetButton: Em.computed.not("isAddingNew")
   addSet: ->
-    log.log "addSetzz"
     @set "isAddingNew", true
     @get("controllers.cardSetsNew").startEditing()
 
