@@ -1,6 +1,6 @@
 App.CardsNewController = Em.ObjectController.extend
   needs: ["cardSet","cardSetCards"]
-  showCloseButton: Em.computed.not("controllers.cardSetCards.isEmpty")
+  showCloseButton: Em.computed.alias("controllers.cardSetCards.hasCards")
   closeButtonLabel: "Close"
   startEditing: ->
     log.log "CardsNewController:startEditing"

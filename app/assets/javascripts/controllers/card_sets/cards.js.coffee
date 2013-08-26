@@ -3,7 +3,8 @@ App.CardSetCardsController = Em.ArrayController.extend
   isShowingAddCardsButton: Em.computed.not("controllers.cardSet.isShowingNewCardsForm")
   sortProperties: ['createdAt']
   sortAscending: false
-  isEmpty: Em.computed.empty('content')
+  #isEmpty: Em.computed.empty('content') #replaced w hasCards, as seemed wasn't being updated when card added
+  hasCards: Em.computed.gt('content.length', 0)
   labels: Em.computed.alias('controllers.cardSetLabels.content')
   itemController: 'card'
 

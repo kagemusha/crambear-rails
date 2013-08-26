@@ -2,7 +2,8 @@ App.CardSetController = Em.ObjectController.extend
   needs: ["cardSetCards","cardsNew"]
   isAddingNew: false
   isEditingName: false
-  isShowingNewCardsForm: Em.computed.or("controllers.cardSetCards.isEmpty", "isAddingNew" )
+  isEmpty: Em.computed.lt("cards.length",1)
+  isShowingNewCardsForm: Em.computed.or("isEmpty", "isAddingNew" )
   editName: ->
     @set 'isEditingName', true
     set = @get('content')

@@ -8,10 +8,11 @@
         if isShowingAddCardsButton
           #add-cards
             button{action addCards} Add Cards
-    if isEmpty
-      li
-        #no-cards-msg No cards added yet
-    else
+    if hasCards
       each controller
         partial "cards/card_row"
+    else
+      li
+        #no-cards-msg
+          | No cards added yet
 
