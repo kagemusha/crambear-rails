@@ -29,3 +29,12 @@ App.CardSetController = Em.ObjectController.extend
         @get('target.router').transitionTo 'card_sets.index'
       else
         @transitionToRoute 'card_set' , sets.objectAt(0)
+
+  idChanged: (->
+    # on new set creation url is null so re-transition to model which
+    # will now have an id
+    # seems only one network call, so no loss of efficiency but....
+    # should be a better way
+    if window.location.hash.match(/null$/)
+      @transitionToRoute 'card_set' , @get('model')
+    ).observes("id")
