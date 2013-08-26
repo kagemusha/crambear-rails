@@ -20,7 +20,7 @@ App.CardController = Em.ObjectController.extend
     # types don't change state, so to force rec to
     # save, must call transitionTo('updated') manually
     model = @get('content')
-    model.stateManager.transitionTo('updated');
+    model.currentState.becomeDirty(model)
     @save()
 
   hasLabel: (id)->
