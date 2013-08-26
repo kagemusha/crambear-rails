@@ -133,7 +133,7 @@ $table-horiz-margin: 80px
     height: $card-set-header-height
   td, td
     vertical-align: top
-#sets-admin-cell
+#set-admin-cell
   background: $heading_bg
   border-top-left-radius: 18px
 #set-header-cell
@@ -165,7 +165,7 @@ $table-horiz-margin: 80px
   color: purple
   width: $sidebar-elem-width
   border-top-left-radius: 18px
-  height:  $card-set-header-height
+  height: 100%
   text-align: center
   padding: $set-admin-v-pad $set-admin-h-pad
   #new-set-btn
@@ -208,7 +208,7 @@ ul#card-sets
   background: $heading_bg
   border-top-right-radius: 18px
   padding: $header-vert-padding 6px
-  height:  $card-set-header-height
+  height:  100%
   min-width: $cards-list-container-min-width
 
 #card-set-header-top
@@ -267,6 +267,7 @@ ul#card-sets
 //  border-bottom-right-radius: 18px
 
 @mixin card-side
+  margin-left: 10px
   font-size: 22px
   padding: 0 6px
   float: left
@@ -274,10 +275,11 @@ ul#card-sets
 
 #no-cards-msg
   font-style: italic
+  margin-left: 10px
 
 ul#cards
   background: $card_green
-  min-width: $cards-list-container-min-width
+  width: calc(100% - 20px)
   height: 100%
   border-bottom-right-radius: 18px
   float: left
@@ -302,13 +304,12 @@ ul#cards
       border-radius: 20%
       background: black
     .front
-      margin-left: 10px
-      width: 47%
+      width: calc(50% - 18px)
       color: purple
       font-weight: bold
       @include card-side
     .back
-      width: 48%
+      width: calc(50% - 38px)
       @include card-side
     &.header
       .front, .back
