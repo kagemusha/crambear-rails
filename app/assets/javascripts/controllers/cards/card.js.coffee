@@ -9,7 +9,7 @@ App.CardController = Em.ObjectController.extend
     @save()
   toggleLabel: (labelId) ->
     labelId *= 1 #force type => number
-    lbls = @get("labelIds")
+    lbls = @get("labelIds") || Em.A()
     if lbls.contains(labelId)
       lbls.removeObject(labelId)
     else

@@ -26,8 +26,10 @@ class CardsController < ApplicationController
     card = Card.find(params["id"])
     card_params = params["card"]
     card_params.delete "card_set_id"
-    card.update_attributes card_params
-    if card.save!
+    card_params.delete "updated_at"
+    card_params.delete "created_at"
+    card_params["label_ids"] ||= []
+    if card.update_attributes! card_params
       render json: card, status: :ok
     else
       render json: card.errors, status: :unprocessable_entity
