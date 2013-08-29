@@ -3,8 +3,6 @@ class CardSet < ActiveRecord::Base
 	has_many :cards, :order=>"updated_at desc", :dependent => :destroy
   has_many :results, :dependent => :destroy
   has_many :labels, :dependent => :destroy
-  default_scope :order => 'updated_at DESC'
-  attr_accessible :name, :description, :cards_count
 
   def self.myType
     "card_set"

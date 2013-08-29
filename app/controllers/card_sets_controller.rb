@@ -1,7 +1,10 @@
 class CardSetsController < ApplicationController
-	before_filter :authenticate_user!
+  before_filter :authenticate_user!
   respond_to :json
-  #skip_before_filter :verify_authenticity_token, :only=>[:destroy]
+
+  def card_set_params
+    params.require(:card_set).permit(:name, :description)
+  end
 
   def index
     render :json => current_user.card_sets
@@ -9,28 +12,23 @@ class CardSetsController < ApplicationController
   
   def show
     card_set = CardSet.find_by_id(params[:id])
-    if !card_set
-      render :json => {:error => "not-found"}.to_json, :status => 404
-    else
+    if card_set
       render :json=>card_set
+    else
+      render :json => {:error => "not-found"}.to_json, :status => 404
     end
   end
 
   def create
-    card_set = CardSet.new(params[:card_set])
+    card_set = CardSet.new(card_set_params)
     current_user.card_sets << card_set
     current_user.save!
     respond_with card_set
   end
   
   def update
-    set = params["card_set"]
-    id = params.delete("id")
-    p "pms: #{params}"
-    params.delete "cards_count"
     card_set = CardSet.find(id)
-    card_set.name = set["name"]
-    if card_set.save!
+    if card_set.update card_set_params
       render json: card_set, status: :ok
     else
       render json: card_set.errors, status: :unprocessable_entity

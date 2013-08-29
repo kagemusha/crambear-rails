@@ -2,6 +2,12 @@ class CardsController < ApplicationController
 	before_filter :authenticate_user!
   skip_before_filter :verify_authenticity_token #, :only=>[:destroy, :toggle_label]
 
+  def card_params
+    params.require(:card).permit :archived, :front, :back,
+                                 :card_set_id, :label_ids,
+                                 :times_viewed, :times_correct, :recent_corrects
+  end
+
   def index
     @card_set = current_user.card_sets.find(params[:card_set_id])
     render :json=>@card_set.cards
@@ -15,8 +21,9 @@ class CardsController < ApplicationController
   def create
     card_set_id = params[:card].delete(:card_set_id)
     card_set = current_user.card_sets.find(card_set_id)
-    card = Card.new params[:card]
-    #updateArchAndLabels @card, params[:card]
+    card = Card.new card_params
+    #label_ids becomes unpermitted param even though in white list. b/c an array?
+    card.label_ids = params["card"]["label_ids"] || []
     card_set.cards << card
     card_set.save!
     respond_with card
@@ -24,12 +31,9 @@ class CardsController < ApplicationController
   
   def update
     card = Card.find(params["id"])
-    card_params = params["card"]
-    card_params.delete "card_set_id"
-    card_params.delete "updated_at"
-    card_params.delete "created_at"
-    card_params["label_ids"] ||= []
-    if card.update_attributes! card_params
+    #label_ids becomes unpermitted param even though in white list. b/c an array?
+    card.label_ids = params["card"]["label_ids"] || []
+    if card.update card_params
       render json: card, status: :ok
     else
       render json: card.errors, status: :unprocessable_entity
