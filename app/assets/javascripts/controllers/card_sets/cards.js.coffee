@@ -12,8 +12,9 @@ App.CardSetCardsController = Em.ArrayController.extend
     @transaction.commit()
     @transaction = undefined
     @set 'isEditingName', false
-  addCards: ->
-    log.log "cardsetcardcontroller- add cards"
-    @set "controllers.cardSet.isAddingNew", true
-    @get("controllers.cardsNew").startEditing()
+  actions:
+    addCards: ->
+      log.log "cardsetcardcontroller- add cards"
+      @set "controllers.cardSet.isAddingNew", true
+      @get("controllers.cardsNew").startEditing()
 

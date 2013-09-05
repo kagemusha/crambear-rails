@@ -56,7 +56,7 @@ App.CardSetsNewRoute = Em.Route.extend
 
   deactivate: ->
     @controllerFor('card_sets.new').stopEditing()
-  events:
+  actions:
     setCreated: (cardSet) ->
       log.log "setCreated", cardSet.get('name')
       @transitionTo 'card_set', cardSet
@@ -90,7 +90,7 @@ App.LoginRoute = Em.Route.extend
   setupController: (controller, model) ->
     controller.set 'content', model
     controller.set "errorMsg", ""
-  events:
+  actions:
     cancel: ->
       log.info "cancelling login"
       @transitionTo 'home'
@@ -100,7 +100,7 @@ App.LoginRoute = Em.Route.extend
 
 App.RegistrationRoute = Em.Route.extend
   model: (params) -> Em.Object.create()
-  events:
+  actions:
     register: ->
       log.info "Registering..."
       App.Authentication.register this

@@ -9,10 +9,6 @@ App.StudyController = Ember.ObjectController.extend
   isShowingFront: true
   isShowingBack: (-> @get("pageRendered") and not @get("isShowingFront")
   ).property("isShowingFront", "pageRendered")
-  toggleArchived: ->
-    log.log "togArch"
-    @set("isShowingArchived", !@get("isShowingArchived"))
-    @restart()
   correctCount: 0
   cardsLeft: 0
   finished: false
@@ -35,14 +31,6 @@ App.StudyController = Ember.ObjectController.extend
       selected = @get('selectedFilterIds').contains(labelId)
       {name: label.get('name'), id: labelId, isSelected: selected}
   ).property("selectedFilterIds.@each")
-  toggleFilter: (labelId) ->
-    labelId *= 1 #force type => number
-    lbls = @get("selectedFilterIds")
-    if lbls.contains(labelId)
-      lbls.removeObject(labelId)
-    else
-      lbls.pushObject(labelId)
-    @restart()
 
   restart: ->
     @set "finished", false
@@ -84,19 +72,6 @@ App.StudyController = Ember.ObjectController.extend
 
   initLabels: -> Em.K()
 
-  flip: ->
-    log.log "action flipped"
-    @set "isShowingFront", false
-
-  correct: ->
-    @set "correctCount", @get("correctCount")+1
-    log.log "action correct"
-    @next()
-
-  wrong: ->
-    log.log "action wrong"
-    @next()
-
   next: ->
     @set "isShowingFront", true
     if @order.length==0
@@ -106,3 +81,30 @@ App.StudyController = Ember.ObjectController.extend
       @set "currentCard", @get("cards").objectAt(cardId)
       @set("cardsLeft", @order.length+1)
 
+  actions:
+    correct: ->
+      @set "correctCount", @get("correctCount")+1
+      log.log "action correct"
+      @next()
+
+    wrong: ->
+      log.log "action wrong"
+      @next()
+
+    flip: ->
+      log.log "action flipped"
+      @set "isShowingFront", false
+
+    toggleArchived: ->
+      log.log "togArch"
+      @set("isShowingArchived", !@get("isShowingArchived"))
+      @restart()
+
+    toggleFilter: (labelId) ->
+      labelId *= 1 #force type => number
+      lbls = @get("selectedFilterIds")
+      if lbls.contains(labelId)
+        lbls.removeObject(labelId)
+      else
+        lbls.pushObject(labelId)
+      @restart()

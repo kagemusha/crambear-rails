@@ -4,7 +4,8 @@ App.CardSetsController = Em.ArrayController.extend
   sortProperties: ['name']
   isAddingNew: false
   showAddSetButton: Em.computed.not("isAddingNew")
-  addSet: ->
-    @set "isAddingNew", true
-    @get("controllers.cardSetsNew").startEditing()
+  actions:
+    addSet: ->
+      @set "isAddingNew", true
+      @get("controllers.cardSetsNew").startEditing()
 
