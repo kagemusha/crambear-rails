@@ -1,5 +1,9 @@
-*** WIP ***
-You can use the [non-Ember version](http://crambear2.herokuapp.com) to see a full implementation.
+DEPRECATED
+------
+Replaced by ember-cli/rails projects:
+* https://github.com/kagemusha/crambear
+* https://github.com/kagemusha/crambear-api
+
 
 Crambear
 =======================
